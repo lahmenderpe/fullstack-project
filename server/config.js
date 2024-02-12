@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 dotenv.config();
 
 const PORT = process.env.PORT || 3131;
@@ -7,4 +7,4 @@ const MONGO_URL =
     ? process.env.MONGO_URL_TEST
     : process.env.MONGO_URL;
 
-export { PORT, MONGO_URL };
+module.exports = { PORT, MONGO_URL };

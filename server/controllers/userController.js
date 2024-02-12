@@ -1,10 +1,10 @@
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import User from "../models/userModel.js";
-import Jobs from "../models/jobsModel.js";
-import { validateRegister } from "../validateRequest.js";
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const User = require("../models/userModel.js");
+const Jobs = require("../models/jobsModel.js");
+const validateRegister = require("../validateRequest.js");
 
-export const login = async (req, res, next) => {
+const login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
 
@@ -35,9 +35,10 @@ export const login = async (req, res, next) => {
   }
 };
 
-export const register = async (req, res, next) => {
+const register = async (req, res, next) => {
   try {
     const credentials = req.body;
+    console.log(credentials);
     const { error } = validateRegister.validate(credentials);
 
     if (error) {
@@ -61,11 +62,12 @@ export const register = async (req, res, next) => {
     res.status(201).send();
   } catch (error) {
     next(error);
-    res.state(500).send("Something went wrong");
+    console.log(error);
+    res.status(500).send("Something went wrong");
   }
 };
 
-export const getUserInfo = async (req, res, next) => {
+const getUserInfo = async (req, res, next) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
@@ -82,11 +84,11 @@ export const getUserInfo = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-    res.state(500).send("Something went wrong");
+    res.status(500).send("Something went wrong");
   }
 };
 
-export const deleteUser = async (req, res, next) => {
+const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -102,11 +104,11 @@ export const deleteUser = async (req, res, next) => {
     res.status(200).send();
   } catch (error) {
     next(error);
-    res.state(500).send("Something went wrong");
+    res.status(500).send("Something went wrong");
   }
 };
 
-export const updateUser = async (req, res, next) => {
+const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
     const user = req.body;
@@ -123,3 +125,5 @@ export const updateUser = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports = { register, login, updateUser, deleteUser, getUserInfo };

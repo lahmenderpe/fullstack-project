@@ -1,12 +1,12 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   register,
   login,
   updateUser,
   deleteUser,
   getUserInfo,
-} from "../controllers/userController.js";
-import validateToken from "../middlewares/validateToken.js";
+} = require("../controllers/userController.js");
+const validateToken = require("../middlewares/validateToken.js");
 
 const userRouter = express.Router();
 
@@ -16,4 +16,4 @@ userRouter.get("/:id", validateToken, getUserInfo);
 userRouter.put("/:id", validateToken, updateUser);
 userRouter.delete("/:id", validateToken, deleteUser);
 
-export default userRouter;
+module.exports = userRouter;

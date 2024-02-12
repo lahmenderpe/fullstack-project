@@ -1,10 +1,10 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import jobsRouter from "./routers/jobRouter.js";
-import userRouter from "./routers/userRouter.js";
-import validateToken from "./middlewares/validateToken.js";
-import errorHandler from "./middlewares/errorHandler.js";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const jobsRouter = require("./routers/jobRouter.js");
+const userRouter = require("./routers/userRouter.js");
+const validateToken = require("./middlewares/validateToken.js");
+const errorHandler = require("./middlewares/errorHandler.js");
 
 dotenv.config();
 const app = express();
@@ -19,4 +19,4 @@ app.use("/api/v1/user", userRouter);
 
 app.use(errorHandler);
 
-export default app;
+module.exports = app;

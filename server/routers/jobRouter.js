@@ -1,10 +1,10 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   getAllJobs,
   addNewJob,
   deleteJob,
   updateJob,
-} from "../controllers/jobController.js";
+} = require("../controllers/jobController.js");
 
 const jobRouter = express.Router();
 
@@ -13,4 +13,4 @@ jobRouter.post("/", addNewJob);
 jobRouter.delete("/:id", deleteJob);
 jobRouter.put("/:id", updateJob);
 
-export default jobRouter;
+module.exports = jobRouter;

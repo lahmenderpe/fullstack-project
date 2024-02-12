@@ -1,6 +1,6 @@
-import { PORT } from "./config.js";
-import app from "./app.js";
-import createConnection from "./db/connection.js";
+const { PORT } = require("./config.js");
+const app = require("./app.js");
+const createConnection = require("./db/connection.js");
 
 createConnection()
   .then(() => {

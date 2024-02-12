@@ -1,6 +1,6 @@
-import Jobs from "../models/jobsModel.js";
+const Jobs = require("../models/jobsModel.js");
 
-export const getAllJobs = async (req, res, next) => {
+const getAllJobs = async (req, res, next) => {
   try {
     const { id } = req.params;
     const response = await Jobs.find({ user: id });
@@ -10,7 +10,7 @@ export const getAllJobs = async (req, res, next) => {
   }
 };
 
-export const addNewJob = async (req, res, next) => {
+const addNewJob = async (req, res, next) => {
   try {
     const job = req.body;
     const newJob = new Jobs(job);
@@ -21,7 +21,7 @@ export const addNewJob = async (req, res, next) => {
   }
 };
 
-export const deleteJob = async (req, res, next) => {
+const deleteJob = async (req, res, next) => {
   try {
     const { id } = req.params;
     const itemTobeDeleted = await Jobs.findById(id);
@@ -37,7 +37,7 @@ export const deleteJob = async (req, res, next) => {
   }
 };
 
-export const updateJob = async (req, res, next) => {
+const updateJob = async (req, res, next) => {
   try {
     const { id } = req.params;
     const job = req.body;
@@ -56,3 +56,5 @@ export const updateJob = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports = { getAllJobs, updateJob, addNewJob, deleteJob };

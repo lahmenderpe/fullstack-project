@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import { MONGO_URL } from "../config.js";
+const mongoose = require("mongoose");
+const { MONGO_URL } = require("../config.js");
 
 const createConnection = () => {
   return mongoose.connect(MONGO_URL);
 };
 
-export default createConnection;
+module.exports = createConnection;

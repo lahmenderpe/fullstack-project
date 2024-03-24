@@ -1,0 +1,29 @@
+@use "../../style/" as *;
+
+.input__wrapper {
+  margin-bottom: 20px;
+
+  div > label {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid $border-color;
+    padding: 0 30px;
+    border-radius: 6px;
+    background-color: $bg-color;
+
+    ::placeholder {
+      color: $border-color;
+      font-size: 1rem;
+    }
+  }
+
+  .input__required {
+    color: red;
+    padding: 0 4px;
+  }
+}

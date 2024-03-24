@@ -1,0 +1,12 @@
+@use "../../style/" as *;
+
+.card {
+  background-color: $white;
+  border-radius: 8px;
+  @include shadow;
+
+  .card__logo {
+    padding: 20px 10px;
+    @include center;
+  }
+}

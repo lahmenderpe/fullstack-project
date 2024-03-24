@@ -11,4 +11,5 @@
 |            |      | - Create middleware for token validation,                           |
 | 06.02.2024 | 5    | - Add CRUD operations for Jobs and User and test end points         |
 | 24.03.2024 | 3    | - Create Types, setup context and reducers, create hooks for client |
-|   Total    | 17   |                                                                     |
+| 24.03.2024 | 2    | - Create router, auth route for client. Fix bugs                    |
+|   Total    | 19   |                                                                     |

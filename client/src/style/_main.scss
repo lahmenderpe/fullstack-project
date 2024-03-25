@@ -13,8 +13,6 @@
 html,
 body {
   font-family: "Nunito", sans-serif;
-  font-family: "Nunito Sans", sans-serif;
-  font-family: "Roboto", sans-serif;
 }
 
 .page {
@@ -24,4 +22,9 @@ body {
   align-items: center;
   justify-content: center;
   background: $bg-color;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
 }

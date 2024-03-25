@@ -1,11 +1,7 @@
 import { FC } from "react";
 import "./card.style.scss";
 import { ChildrenType } from "../../@types/commonTypes";
-
-type CardType = {
-  height?: number;
-  width: number;
-};
+import { CardType } from "../../@types/components/componentTypes";
 
 const Card: FC<ChildrenType & CardType> = ({ children, height, width }) => {
   return (

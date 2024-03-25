@@ -10,15 +10,25 @@
 
   .input {
     width: 100%;
-    height: 50px;
+    height: 45px;
     border: 1px solid $border-color;
     padding: 0 30px;
     border-radius: 6px;
-    background-color: $bg-color;
+    background-color: $input_bg;
+    @include animate;
 
-    ::placeholder {
-      color: $border-color;
-      font-size: 1rem;
+    &::placeholder {
+      font-size: 15px;
+    }
+
+    &:hover {
+      border: 1px solid rgba($primary, $alpha: 0.4);
+    }
+
+    &:focus {
+      border: 1px solid $primary;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($primary, $alpha: 0.2);
     }
   }
 

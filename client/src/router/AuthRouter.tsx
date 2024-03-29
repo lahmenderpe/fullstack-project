@@ -6,7 +6,13 @@ const AuthRouter = ({ children }: { children: React.ReactNode }): any => {
   const isAuthenticated = useAuth();
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return (
+      <Navigate
+        to="/auth"
+        state={{ from: location, target: "login" }}
+        replace
+      />
+    );
   }
 
   return children;

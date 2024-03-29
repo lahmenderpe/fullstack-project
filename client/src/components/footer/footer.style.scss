@@ -1,0 +1,15 @@
+@use "../../style/" as *;
+
+.footer {
+  background-color: $bg-color;
+  @include center;
+  padding: 20px;
+  color: $grey;
+  font-size: 1rem;
+
+  > section {
+    width: 100%;
+    @include center;
+    flex-direction: column;
+  }
+}

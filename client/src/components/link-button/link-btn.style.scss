@@ -1,0 +1,9 @@
+@use "../../style/" as *;
+
+.link-btn {
+  border: none;
+  background-color: transparent;
+  color: $primary;
+  font-size: 0.938rem;
+  cursor: pointer;
+}

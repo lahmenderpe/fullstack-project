@@ -1,12 +1,22 @@
 import { useState } from "react";
-import { Card, Input, Button, Logo } from "../../components";
-import { Link } from "react-router-dom";
+import { Card, Input, Button, Logo, LinkButton } from "../../components";
+import { useNavigate, useLocation } from "react-router-dom";
 import cover from "../../assets/login-cover.jpg";
-import "./loginpage.style.scss";
+import "./authpage.style.scss";
 
-const LoginPage = () => {
+const AuthPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { state } = location;
+
+  console.log(state);
+
+  const handleRegister = () => {
+    navigate("/auth", { state: { target: "register" }, replace: true });
+  };
 
   return (
     <section className="login-page page">
@@ -36,7 +46,8 @@ const LoginPage = () => {
             />
             <Button primary>Login</Button>
             <div className="card__register">
-              Don't have an account? <Link to="/register">Register here</Link>
+              Don't have an account?{" "}
+              <LinkButton action={handleRegister}>Register here</LinkButton>
             </div>
             <div className="card__seperator">
               <span className="seperator__line"></span>
@@ -54,4 +65,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AuthPage;

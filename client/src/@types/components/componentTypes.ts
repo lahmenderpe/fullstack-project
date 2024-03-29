@@ -7,3 +7,7 @@ export type CardType = {
   height?: number;
   width: number;
 };
+
+export type LinkButtonType = {
+  action: () => void;
+};

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { AppProvider } from "./context/appContext";
+import { TranslationProvider } from "./context/translationContext";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
@@ -10,9 +11,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AppProvider>
-      <Router>
-        <App />
-      </Router>
+      <TranslationProvider>
+        <Router>
+          <App />
+        </Router>
+      </TranslationProvider>
     </AppProvider>
   </React.StrictMode>
 );

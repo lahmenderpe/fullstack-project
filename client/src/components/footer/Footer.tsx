@@ -15,7 +15,7 @@ const Footer: FC = () => {
             Cihan Erenler
           </a>
         </div>
-        <div>JobHunder © {new Date().getUTCFullYear()}</div>
+        <div>JobHunter © {new Date().getUTCFullYear()}</div>
       </section>
     </footer>
   );

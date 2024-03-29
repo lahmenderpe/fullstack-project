@@ -1,22 +1,31 @@
-import { useState } from "react";
+import { useState, FC, useEffect } from "react";
 import { Card, Input, Button, Logo, LinkButton } from "../../components";
 import { useNavigate, useLocation } from "react-router-dom";
+import { setPageTitle } from "../../utils/utils";
+import useTranslate from "../../hooks/useTranslate";
 import cover from "../../assets/login-cover.jpg";
 import "./authpage.style.scss";
 
-const AuthPage = () => {
+const AuthPage: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { translate, language } = useTranslate();
   const { state } = location;
-
-  console.log(state);
+  const routeState = state.target || "login";
 
   const handleRegister = () => {
     navigate("/auth", { state: { target: "register" }, replace: true });
   };
+
+  useEffect(() => {
+    const title =
+      routeState === "login" ? "page_title_login" : "page_title_register";
+
+    setPageTitle(translate(title));
+  }, [routeState, translate, language]);
 
   return (
     <section className="login-page page">

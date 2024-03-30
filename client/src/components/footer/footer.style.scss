@@ -1,11 +1,12 @@
 @use "../../style/" as *;
 
 .footer {
-  background-color: $bg-color;
+  background-color: $white;
   @include center;
   padding: 20px;
   color: $grey;
   font-size: 1rem;
+  border-top: 1px solid $border-color;
 
   > section {
     width: 100%;

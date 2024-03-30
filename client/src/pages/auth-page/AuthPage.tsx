@@ -14,7 +14,7 @@ const AuthPage: FC = () => {
   const location = useLocation();
   const { translate, language } = useTranslate();
   const { state } = location;
-  const routeState = state.target || "login";
+  const routeState = state?.target || "login";
 
   const handleRegister = () => {
     navigate("/auth", { state: { target: "register" }, replace: true });
@@ -31,9 +31,6 @@ const AuthPage: FC = () => {
     <section className="login-page page">
       <Card width={1000}>
         <section>
-          <div className="card__logo">
-            <Logo width={200} />
-          </div>
           <div className="card__form-group">
             <Input
               id="email"

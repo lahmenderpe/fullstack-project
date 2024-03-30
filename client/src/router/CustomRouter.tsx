@@ -11,12 +11,10 @@ import AuthRouter from "./AuthRouter";
 const CustomRouter = () => {
   const location = useLocation();
   const path = location.pathname;
-  const showHeader = path !== "/auth";
 
-  console.log(showHeader);
   return (
     <>
-      {showHeader && <Header />}
+      <Header />
       <Routes>
         <Route
           path="/"
@@ -26,9 +24,16 @@ const CustomRouter = () => {
             </AuthRouter>
           }
         />
-        <Route path="/auth" element={<AuthPage />} />
+        <Route
+          path="/auth"
+          element={
+            <AuthRouter reverse>
+              <AuthPage />
+            </AuthRouter>
+          }
+        />
       </Routes>
-      <Footer />
+      {path === "/auth" && <Footer />}
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import "./header.style.scss";
 
 const Header: FC = () => {
   const { state } = useLocation();

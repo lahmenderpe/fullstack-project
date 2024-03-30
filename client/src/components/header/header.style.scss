@@ -1,0 +1,32 @@
+@use "../../style/" as *;
+
+.header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  z-index: 9999;
+  border-bottom: 1px solid $border-color;
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+      color: $primary_darker;
+      @include animate;
+      font-weight: 500;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

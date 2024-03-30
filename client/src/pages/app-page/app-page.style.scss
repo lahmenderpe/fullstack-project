@@ -1,0 +1,7 @@
+@use "../../style/" as *;
+
+.app-page {
+  height: 100vh;
+  background-color: $bg-color;
+  display: flex;
+}

@@ -8,6 +8,12 @@
   margin-top: 10px;
   cursor: pointer;
   border: 1px solid $primary;
+  opacity: 0.9;
+  @include animate;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .btn.primary {
@@ -19,4 +25,8 @@
   background-color: $white;
   color: $primary;
   border: 1px solid;
+
+  &:hover {
+    background-color: $bg-color !important;
+  }
 }

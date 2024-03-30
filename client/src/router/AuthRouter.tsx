@@ -1,9 +1,15 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
-const AuthRouter = ({ children }: { children: React.ReactNode }): any => {
+const AuthRouter = ({
+  children,
+  reverse,
+}: {
+  children: React.ReactNode;
+  reverse?: boolean;
+}): any => {
   const location = useLocation();
-  const isAuthenticated = useAuth();
+  const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
     return (
@@ -12,6 +18,12 @@ const AuthRouter = ({ children }: { children: React.ReactNode }): any => {
         state={{ from: location, target: "login" }}
         replace
       />
+    );
+  }
+
+  if (!!reverse && isAuthenticated) {
+    return (
+      <Navigate to="/" state={{ from: location, target: "app" }} replace />
     );
   }
 

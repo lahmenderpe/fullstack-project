@@ -17,4 +17,5 @@
 | 29.03.2024 | 3    | - Improve login logic, add link button, header, footer components             |
 | 29.03.2024 | 4    | - add useLocalStorage, useTranslate hook, create a language translate library |
 | 30.03.2024 | 5    | - add useAuth, reverse auth router and sidebar, improve styling               |
-|   Total    | 37   |                                                                               |
+| 01.04.2024 | 6    | - add content pages, add nested routes, add navigation to sidebar             |
+|   Total    | 43   |                                                                               |

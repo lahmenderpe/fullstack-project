@@ -1,11 +1,6 @@
-export type ActionType = {
-  state: string;
-  action: any;
-};
-
-export type ReducerType<state> = {
-  state: state;
-  action: ActionType;
+export type ReducerType = {
+  payload: any;
+  type: string;
 };
 
 export type ChildrenType = {

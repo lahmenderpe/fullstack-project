@@ -4,7 +4,13 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { AuthPage, AppPage } from "../pages";
+import {
+  AuthPage,
+  AppPage,
+  AllJobsPage,
+  FilterPage,
+  AddNewJobPage,
+} from "../pages";
 import { Footer, Header } from "../components";
 import AuthRouter from "./AuthRouter";
 
@@ -23,7 +29,12 @@ const CustomRouter = () => {
               <AppPage />
             </AuthRouter>
           }
-        />
+        >
+          <Route index element={<AllJobsPage />} />
+          <Route path="/filter" element={<FilterPage />} />
+          <Route path="/add-job" element={<AddNewJobPage />} />
+        </Route>
+
         <Route
           path="/auth"
           element={

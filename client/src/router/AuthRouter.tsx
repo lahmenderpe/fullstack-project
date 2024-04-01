@@ -10,8 +10,9 @@ const AuthRouter = ({
 }): any => {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
+  const { state } = location;
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && state?.target !== "login") {
     return (
       <Navigate
         to="/auth"
@@ -21,7 +22,7 @@ const AuthRouter = ({
     );
   }
 
-  if (!!reverse && isAuthenticated) {
+  if (reverse && isAuthenticated) {
     return (
       <Navigate to="/" state={{ from: location, target: "app" }} replace />
     );

@@ -1,5 +1,5 @@
 import { useState, FC, useEffect } from "react";
-import { Card, Input, Button, Logo, LinkButton } from "../../components";
+import { Card, Input, Button, LinkButton } from "../../components";
 import { useNavigate, useLocation } from "react-router-dom";
 import { setPageTitle } from "../../utils/utils";
 import useTranslate from "../../hooks/useTranslate";

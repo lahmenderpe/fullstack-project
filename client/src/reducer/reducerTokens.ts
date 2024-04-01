@@ -1,2 +1,2 @@
 // App context
-export const SOME_TOKENS = "SOME_TOKENS";
+export const SET_SELECTED_PAGE = "SET_SELECTED_PAGE";

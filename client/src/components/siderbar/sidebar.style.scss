@@ -4,4 +4,31 @@
   width: 250px;
   background-color: $white;
   border-right: 1px solid $border-color;
+  padding: 90px 20px;
+
+  a {
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    gap: 10px;
+    color: $primary_darker;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 8px;
+    @include animate;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    &:hover {
+      background-color: $bg-color;
+    }
+
+    svg {
+      fill: $primary;
+    }
+  }
+
+  a.selected {
+    background-color: $sidebar_selected;
+  }
 }

@@ -1,6 +1,10 @@
-export type AppContextStateType = {
+export type AppContexType = {
   jobs: JobType[];
+  selectedPage: string;
+  setSelectedPage: (value: string) => void;
 };
+
+export type AppContextStateType = { jobs: JobType[]; selectedPage: string };
 
 export type JobType = {
   title: string;

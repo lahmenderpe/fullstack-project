@@ -1,0 +1,23 @@
+@use "../../style/" as *;
+
+.not-found-page {
+  > div {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: $primary_darker;
+
+    h1 {
+      font-size: 54px;
+    }
+
+    p {
+      font-size: 20px;
+      color: $grey;
+      font-weight: 400;
+      padding: 20px;
+    }
+  }
+}

@@ -20,6 +20,10 @@ const AuthPage: FC = () => {
     navigate("/auth", { state: { target: "register" }, replace: true });
   };
 
+  const handleLogin = () => {};
+
+  const handleDemo = () => {};
+
   useEffect(() => {
     const title =
       routeState === "login" ? "page_title_login" : "page_title_register";
@@ -50,7 +54,9 @@ const AuthPage: FC = () => {
               onchange={(e) => setPassword(e.target.value)}
               required
             />
-            <Button primary>Login</Button>
+            <Button primary action={handleLogin}>
+              Login
+            </Button>
             <div className="card__register">
               Don't have an account?{" "}
               <LinkButton action={handleRegister}>Register here</LinkButton>
@@ -60,7 +66,9 @@ const AuthPage: FC = () => {
               <span>Or try demo</span>
               <span className="seperator__line"></span>
             </div>
-            <Button secondary>Try Demo</Button>
+            <Button secondary action={handleDemo}>
+              Try Demo
+            </Button>
           </div>
         </section>
         <section>

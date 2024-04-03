@@ -1,6 +1,7 @@
 export type ButtonType = {
   secondary?: boolean;
   primary?: boolean;
+  action: () => void;
 };
 
 export type CardType = {

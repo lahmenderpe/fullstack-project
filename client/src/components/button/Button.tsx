@@ -7,12 +7,14 @@ const Button: FC<ChildrenType & ButtonType> = ({
   children,
   secondary,
   primary,
+  action,
 }) => {
   return (
     <button
       className={`btn ${secondary ? "secondary" : ""}${
         primary ? "primary" : ""
       }`}
+      onClick={action}
     >
       {children}
     </button>

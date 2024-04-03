@@ -18,4 +18,5 @@
 | 29.03.2024 | 4    | - add useLocalStorage, useTranslate hook, create a language translate library |
 | 30.03.2024 | 5    | - add useAuth, reverse auth router and sidebar, improve styling               |
 | 01.04.2024 | 6    | - add content pages, add nested routes, add navigation to sidebar             |
-|   Total    | 43   |                                                                               |
+| 04.04.2024 | 2    | - add not found page, add not 404 route                                       |
+|   Total    | 45   |                                                                               |

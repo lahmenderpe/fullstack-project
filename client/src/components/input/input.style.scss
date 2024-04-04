@@ -3,9 +3,24 @@
 .input__wrapper {
   margin-bottom: 20px;
 
-  div > label {
+  div:first-child > label {
     display: inline-block;
     margin-bottom: 6px;
+  }
+
+  div:last-child {
+    position: relative;
+
+    .input__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
   }
 
   .input {
@@ -15,6 +30,7 @@
     padding: 0 30px;
     border-radius: 6px;
     background-color: $input_bg;
+    font-size: 1rem;
     @include animate;
 
     &::placeholder {

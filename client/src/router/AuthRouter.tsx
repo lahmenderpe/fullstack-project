@@ -13,19 +13,11 @@ const AuthRouter = ({
   const { state } = location;
 
   if (!isAuthenticated && state?.target !== "login") {
-    return (
-      <Navigate
-        to="/auth"
-        state={{ from: location, target: "login" }}
-        replace
-      />
-    );
+    return <Navigate to="/auth" state={{ target: "login" }} replace />;
   }
 
   if (reverse && isAuthenticated) {
-    return (
-      <Navigate to="/" state={{ from: location, target: "app" }} replace />
-    );
+    return <Navigate to="/" state={{ target: "app" }} replace />;
   }
 
   return children;

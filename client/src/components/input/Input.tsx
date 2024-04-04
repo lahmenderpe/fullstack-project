@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import "./input.style.scss";
 
 type InputType = {
   value: string;
-  type?: string;
+  type?: "text" | "password" | "number";
   onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   id: string;
@@ -22,6 +23,15 @@ const Input: FC<InputType> = ({
   label,
   required,
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const defaultType = type ? type : "text";
+  const inputType = type === "password" && showPassword ? "text" : defaultType;
+
   return (
     <section className="input__wrapper">
       <div>
@@ -31,13 +41,26 @@ const Input: FC<InputType> = ({
       <div>
         <input
           id={id}
-          type={type ? type : "text"}
+          type={inputType}
           onChange={onchange}
           value={value}
           name={name}
           placeholder={placeholder}
           className="input"
         />
+        {type === "password" ? (
+          showPassword ? (
+            <span className="input__icon" onClick={handleShowPassword}>
+              <IoMdEye size={24} color="grey" />
+            </span>
+          ) : (
+            <span className="input__icon" onClick={handleShowPassword}>
+              <IoMdEyeOff size={24} color="grey" />
+            </span>
+          )
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );

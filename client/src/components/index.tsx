@@ -8,6 +8,7 @@ import Header from "./header/Header";
 import LinkButton from "./link-button/LinkButton";
 import SideBar from "./siderbar/SideBar";
 import AppContent from "./app-content/AppContent";
+import LoginContent from "./login-content/LoginContent";
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   LinkButton,
   SideBar,
   AppContent,
+  LoginContent,
 };

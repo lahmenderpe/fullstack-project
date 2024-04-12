@@ -2,16 +2,25 @@
 
 .dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
 
   .dropdown__selected {
+    width: 100%;
+    text-align: center;
     background-color: $bg-color;
     padding: 5px 10px;
     border: 1px solid $border-color;
     border-radius: 6px;
     cursor: pointer;
+    margin-bottom: 0 !important;
   }
 
   .dropdown__items {
+    width: 100%;
+    text-align: center;
     position: absolute;
     top: 40px;
     left: 50%;
@@ -19,19 +28,25 @@
     background-color: $white;
     border-radius: 6px;
     overflow: hidden;
+    border: 1px solid $border-color;
 
-    & > section {
+    .dropdown__item {
       cursor: pointer;
       padding: 5px 10px;
 
       &:not(:last-child) {
-        margin-bottom: 4px;
+        border-bottom: 1px solid $border-color;
       }
 
       &:hover {
-        background-color: $primary;
-        color: $white;
+        background-color: $bg-color;
+        color: $primary;
       }
+    }
+
+    .dropdown__item.selected {
+      background-color: $primary;
+      color: $white;
     }
   }
 }

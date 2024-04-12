@@ -21,4 +21,5 @@
 | 04.04.2024 | 2    | - add not found page, add not 404 route                                       |
 | 05.04.2024 | 4    | - add login content, add register content, add show hide password             |
 | 07.04.2024 | 4    | - develop dropdown component, add language selection dropdown to header       |
-|   Total    | 53   |                                                                               |
+| 12.04.2024 | 5    | - refactor dropdown to make it reusable, implement initial translation        |
+|   Total    | 58   |                                                                               |

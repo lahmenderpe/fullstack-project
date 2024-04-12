@@ -2,7 +2,7 @@ import { useState, createContext, useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 // languages
 import en from "../translation/en";
-import fin from "../translation/fin";
+import fi from "../translation/fin";
 
 type TranslationType = {
   [key: string]: string;
@@ -10,7 +10,7 @@ type TranslationType = {
 
 type TranslationsType = {
   en: TranslationType;
-  fin: TranslationType;
+  fi: TranslationType;
 };
 
 type TranslationContextType = {
@@ -19,7 +19,7 @@ type TranslationContextType = {
   language: string;
 };
 
-const translations: TranslationsType = { en, fin };
+const translations: TranslationsType = { en, fi };
 
 export const TranslationContext = createContext<null | TranslationContextType>(
   null

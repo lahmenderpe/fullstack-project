@@ -6,7 +6,7 @@ import logo from "../../assets/logo.svg";
 import "./header.style.scss";
 
 const Header: FC = () => {
-  const { language } = useTranslate();
+  const { language, changeLanguage } = useTranslate();
   const { state } = useLocation();
   const isLogin = state?.target === "login";
 
@@ -21,8 +21,13 @@ const Header: FC = () => {
     },
   ];
 
-  const changeLanguage = () => {
-    console.log(changeLanguage);
+  const handleSelect = (id: string) => {
+    changeLanguage(id);
+  };
+
+  const findSelected = () => {
+    const selected = langs.find((lang) => lang.id === language);
+    return selected || null;
   };
 
   return (
@@ -35,7 +40,11 @@ const Header: FC = () => {
       <section className="header__links">
         <NavLink to="/about">About</NavLink>
         <NavLink to="/about">{isLogin ? "Register" : "Login"}</NavLink>
-        <Dropdown items={langs} selected={language} action={changeLanguage} />
+        <Dropdown
+          items={langs}
+          onSelect={handleSelect}
+          selected={findSelected()}
+        />
       </section>
     </header>
   );

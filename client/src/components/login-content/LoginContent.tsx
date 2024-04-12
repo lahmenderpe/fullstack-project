@@ -48,7 +48,7 @@ const LoginContent: FC<LoginContentType> = ({
           required
         />
         <Button primary action={handleLogin}>
-          {translate("login_button")}
+          {translate("login_button_text")}
         </Button>
         <div className="card__register">
           {translate("login_dont_have_account_text")}{" "}

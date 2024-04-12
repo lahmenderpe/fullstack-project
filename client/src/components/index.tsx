@@ -9,6 +9,7 @@ import LinkButton from "./link-button/LinkButton";
 import SideBar from "./siderbar/SideBar";
 import AppContent from "./app-content/AppContent";
 import LoginContent from "./login-content/LoginContent";
+import Closable from "./closable/Closable";
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   SideBar,
   AppContent,
   LoginContent,
+  Closable,
 };

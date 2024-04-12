@@ -1,44 +1,75 @@
-import { FC, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./dropdown.style.scss";
-
-type DropdownType = {
-  selected: string;
-  action: () => void;
-  items: DropdownItem[];
-};
 
 type DropdownItem = {
   id: string;
   text: string;
-  icon?: any;
 };
 
-const Dropdown: FC<DropdownType> = ({ selected, action, items }) => {
-  const [show, setShow] = useState(false);
+type DropdownProps = {
+  items: DropdownItem[];
+  onSelect: (item: string) => void;
+  selected: DropdownItem | null;
+};
 
-  const renderDropdownItem = (item: DropdownItem, takeAction: () => void) => {
-    const { id, icon, text } = item;
-    return (
-      <section key={id} onClick={takeAction}>
-        {icon && icon}
-        <span>{text}</span>
-      </section>
-    );
+const Dropdown: React.FC<DropdownProps> = ({ items, onSelect, selected }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<DropdownItem | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleSelect = (item: DropdownItem) => {
+    setSelectedItem(item);
+    setIsOpen(false);
+    onSelect(item.id);
   };
 
-  const selectedItem = items.find((i) => i.id === selected);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const temp = selected ? selected : items[0];
+    setSelectedItem(temp);
+  }, [items, selected]);
 
   return (
-    <section className="dropdown">
-      <div className="dropdown__selected" onClick={() => setShow(!show)}>
-        {selectedItem && renderDropdownItem(selectedItem, action)}
+    <div className="dropdown" ref={dropdownRef}>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ cursor: "pointer", marginBottom: "10px" }}
+        className="dropdown__selected"
+      >
+        {selectedItem && selectedItem.text}
       </div>
-      {show && (
+      {isOpen && (
         <div className="dropdown__items">
-          {items.map((item) => renderDropdownItem(item, action))}
+          {items.map((item) => (
+            <div
+              className={`dropdown__item ${
+                selected?.id === item.id ? "selected" : ""
+              }`}
+              key={item.id}
+              onClick={() => handleSelect(item)}
+            >
+              {item.text}
+            </div>
+          ))}
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import sidebarLinks from "./siderbar-links";
 import { useNavigate } from "react-router-dom";
+import useTranslate from "../../hooks/useTranslate";
 import useAppContext from "../../hooks/useAppContext";
 import "./sidebar.style.scss";
 
@@ -15,6 +16,7 @@ type SidebarLinkType = {
 const SideBar: FC = () => {
   const { selectedPage, setSelectedPage } = useAppContext();
   const navigate = useNavigate();
+  const { translate } = useTranslate();
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -35,7 +37,7 @@ const SideBar: FC = () => {
           onClick={(e) => handleLinkClick(e, link)}
         >
           <i>{link.icon}</i>
-          {link.title}
+          {translate(link.translationKey)}
         </a>
       ))}
     </section>

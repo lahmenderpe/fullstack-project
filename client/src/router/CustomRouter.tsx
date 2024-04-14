@@ -11,6 +11,7 @@ import {
   FilterPage,
   AddNewJobPage,
   NotFoundPage,
+  AboutPage,
 } from "../pages";
 import { Footer, Header } from "../components";
 import AuthRouter from "./AuthRouter";
@@ -44,6 +45,7 @@ const CustomRouter = () => {
             </AuthRouter>
           }
         />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {path === "/auth" && <Footer />}

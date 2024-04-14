@@ -8,6 +8,7 @@ const links = [
     title: "All Jobs",
     name: "jobs",
     icon: <MdOutlineWork size={20} />,
+    translationKey: "sidebar_all_jobs",
     to: "/",
   },
   {
@@ -15,6 +16,7 @@ const links = [
     title: "Add Job",
     name: "add-job",
     icon: <BiSolidBookAdd size={20} />,
+    translationKey: "sidebar_add_job",
     to: "/add-job",
   },
   {
@@ -22,6 +24,7 @@ const links = [
     title: "Filter",
     name: "filter",
     icon: <FaFilter size={20} />,
+    translationKey: "sidebar_filter",
     to: "/filter",
   },
 ];

@@ -1,10 +1,25 @@
 const Jobs = require("../models/jobsModel.js");
 
+async function findJobsWithPagination({ page, limit, id }) {
+  const startIndex = (page - 1) * limit;
+  const totalDocuments = await Jobs.countDocuments();
+  const jobs = await Jobs.find().skip(startIndex).limit(limit).exec();
+
+  return {
+    totalDocuments,
+    jobs,
+    totalPages: Math.ceil(totalDocuments / limit),
+    currentPage: page,
+  };
+}
+
 const getAllJobs = async (req, res, next) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const id = req.query.userId;
   try {
-    const { id } = req.params;
-    const response = await Jobs.find({ user: id });
-    res.status(200).json({ jobs: response });
+    const jobs = await findJobsWithPagination({ page, limit, id });
+    res.json(jobs);
   } catch (error) {
     next(error);
   }

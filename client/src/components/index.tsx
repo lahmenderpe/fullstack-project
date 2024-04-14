@@ -10,6 +10,7 @@ import SideBar from "./siderbar/SideBar";
 import AppContent from "./app-content/AppContent";
 import LoginContent from "./login-content/LoginContent";
 import Closable from "./closable/Closable";
+import Pagination from "./pagination/Pagination";
 
 export {
   Button,
@@ -24,4 +25,5 @@ export {
   AppContent,
   LoginContent,
   Closable,
+  Pagination,
 };

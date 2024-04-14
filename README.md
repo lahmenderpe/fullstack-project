@@ -22,4 +22,5 @@
 | 05.04.2024 | 4    | - add login content, add register content, add show hide password             |
 | 07.04.2024 | 4    | - develop dropdown component, add language selection dropdown to header       |
 | 12.04.2024 | 5    | - refactor dropdown to make it reusable, implement initial translation        |
-|   Total    | 58   |                                                                               |
+| 14.04.2024 | 3    | - add initial pagination logic to server, add pagination component            |
+|   Total    | 61   |                                                                               |

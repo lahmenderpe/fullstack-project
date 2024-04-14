@@ -7,6 +7,7 @@ export type AppContexType = {
 export type AppContextStateType = { jobs: JobType[]; selectedPage: string };
 
 export type JobType = {
+  id: string;
   title: string;
   company: string;
   type: string;

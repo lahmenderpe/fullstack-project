@@ -21,7 +21,13 @@
 | 04.04.2024 | 2    | - add not found page, add not 404 route                                       |
 | 05.04.2024 | 4    | - add login content, add register content, add show hide password             |
 | 07.04.2024 | 4    | - develop dropdown component, add language selection dropdown to header       |
-| 12.04.2024 | 5    | - refactor dropdown to make it reusable, implement initial translation        |
+| 12.04.2024 | 5    | - refactor dropdown to make it reusable, implement initial translations       |
 | 14.04.2024 | 3    | - add initial pagination logic to server, add pagination component            |
 | 14.04.2024 | 2    | - add about page and it's translation                                         |
-|   Total    | 61   |                                                                               |
+| 20.04.2024 | 9    | - Add PageTitle, Avatar, Seperator, Badge and JobItem components              |
+|            |      | - Move types into dedicated file                                              |
+|            |      | - Update Button component so that it gets rendered with different colors      |
+|            |      | - Add box shadow to dropdown component                                        |
+|            |      | - Make the side bar fixed during scrolling                                    |
+|            |      | - Resolve Eslint warnings                                                     |
+|   Total    | 70   |                                                                               |

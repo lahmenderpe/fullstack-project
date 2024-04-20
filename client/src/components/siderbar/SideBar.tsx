@@ -3,15 +3,8 @@ import sidebarLinks from "./siderbar-links";
 import { useNavigate } from "react-router-dom";
 import useTranslate from "../../hooks/useTranslate";
 import useAppContext from "../../hooks/useAppContext";
+import { SidebarLinkType } from "../../@types/components/componentTypes";
 import "./sidebar.style.scss";
-
-type SidebarLinkType = {
-  id: number;
-  title: string;
-  name: string;
-  icon: JSX.Element;
-  to: string;
-};
 
 const SideBar: FC = () => {
   const { selectedPage, setSelectedPage } = useAppContext();

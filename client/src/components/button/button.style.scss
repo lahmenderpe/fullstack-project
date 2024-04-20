@@ -30,3 +30,23 @@
     background-color: $bg-color !important;
   }
 }
+
+.btn.small {
+  display: inline-block;
+  width: 100px !important;
+  height: fit-content;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+.btn.delete {
+  color: $declined-color !important;
+  background-color: $declined-bg !important;
+  border-color: $declined-bg;
+}
+
+.btn.edit {
+  color: $job-offer-color !important;
+  background-color: $job-offer-bg !important;
+  border-color: $job-offer-bg;
+}

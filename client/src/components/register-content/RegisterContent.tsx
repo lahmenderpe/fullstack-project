@@ -2,16 +2,7 @@ import { FC } from "react";
 import Input from "../input/Input";
 import Button from "../button/Button";
 import LinkButton from "../link-button/LinkButton";
-
-type RegisterContentType = {
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  handleLogin: () => void;
-  handleRegister: () => void;
-  handleDemo: () => void;
-};
+import { RegisterContentType } from "../../@types/components/componentTypes";
 
 const RegisterContent: FC<RegisterContentType> = ({
   email,

@@ -1,11 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
-
-type LogoType = {
-  width?: number;
-  link?: boolean;
-};
+import { LogoType } from "../../@types/components/componentTypes";
 
 const Logo: FC<LogoType> = ({ width, link }) => {
   if (link) {

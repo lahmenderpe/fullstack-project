@@ -1,17 +1,7 @@
 import { FC, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import "./input.style.scss";
-
-type InputType = {
-  value: string;
-  type?: "text" | "password" | "number";
-  onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  name: string;
-  id: string;
-  placeholder?: string;
-  label?: string;
-  required?: boolean;
-};
+import { InputType } from "../../@types/components/componentTypes";
 
 const Input: FC<InputType> = ({
   value,

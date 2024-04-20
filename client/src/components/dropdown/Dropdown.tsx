@@ -1,16 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./dropdown.style.scss";
-
-type DropdownItem = {
-  id: string;
-  text: string;
-};
-
-type DropdownProps = {
-  items: DropdownItem[];
-  onSelect: (item: string) => void;
-  selected: DropdownItem | null;
-};
+import {
+  DropdownProps,
+  DropdownItem,
+} from "../../@types/components/componentTypes";
 
 const Dropdown: React.FC<DropdownProps> = ({ items, onSelect, selected }) => {
   const [isOpen, setIsOpen] = useState(false);

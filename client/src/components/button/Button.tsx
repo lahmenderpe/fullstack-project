@@ -7,15 +7,25 @@ const Button: FC<ChildrenType & ButtonType> = ({
   children,
   secondary,
   primary,
+  small,
+  deleteBtn,
+  editBtn,
   action,
 }) => {
+  const classNames = ["btn"];
+
+  const genarateClassname = () => {
+    if (secondary) classNames.push("secondary");
+    if (primary) classNames.push("primary");
+    if (small) classNames.push("small");
+    if (deleteBtn) classNames.push("delete");
+    if (editBtn) classNames.push("edit");
+
+    return classNames.join(" ");
+  };
+
   return (
-    <button
-      className={`btn ${secondary ? "secondary" : ""}${
-        primary ? "primary" : ""
-      }`}
-      onClick={action}
-    >
+    <button className={genarateClassname()} onClick={action}>
       {children}
     </button>
   );

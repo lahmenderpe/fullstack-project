@@ -1,7 +1,12 @@
 @use "../../style/" as *;
 
 .app-page {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $bg-color;
   display: flex;
+
+  > div {
+    width: 250px;
+    position: relative;
+  }
 }

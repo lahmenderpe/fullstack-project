@@ -1,0 +1,26 @@
+@use "../../style/" as *;
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  height: fit-content;
+
+  &.interview {
+    background-color: $interview-bg;
+    color: $interview-color;
+  }
+  &.declined {
+    background-color: $declined-bg;
+    color: $declined-color;
+  }
+  &.job-offer {
+    background-color: $job-offer-bg;
+    color: $job-offer-color;
+  }
+  &.pending {
+    background-color: $pending-bg;
+    color: $pending-color;
+  }
+}

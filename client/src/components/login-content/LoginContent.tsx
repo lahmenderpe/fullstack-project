@@ -3,16 +3,7 @@ import Input from "../input/Input";
 import Button from "../button/Button";
 import LinkButton from "../link-button/LinkButton";
 import useTranslate from "../../hooks/useTranslate";
-
-type LoginContentType = {
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  handleLogin: () => void;
-  handleRegister: () => void;
-  handleDemo: () => void;
-};
+import { LoginContentType } from "../../@types/components/componentTypes";
 
 const LoginContent: FC<LoginContentType> = ({
   email,

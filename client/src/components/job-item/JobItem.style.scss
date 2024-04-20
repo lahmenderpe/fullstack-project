@@ -1,0 +1,37 @@
+@use "../../style/" as *;
+
+.job-item {
+  background-color: $white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid $border-color;
+
+  header {
+    display: flex;
+    gap: 20px;
+  }
+
+  main {
+    display: flex;
+
+    > div {
+      flex: 1;
+
+      .location,
+      .created,
+      .type {
+        color: $grey;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

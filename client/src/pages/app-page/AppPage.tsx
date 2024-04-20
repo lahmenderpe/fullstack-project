@@ -1,13 +1,14 @@
 import { FC } from "react";
-import { SideBar, AppContent } from "../../components";
-import AllJobsPage from "../all-jobs-page/AllJobsPage";
+import { SideBar } from "../../components";
 import { Outlet } from "react-router-dom";
 import "./app-page.style.scss";
 
 const AppPage: FC = () => {
   return (
     <section className="app-page">
-      <SideBar />
+      <div>
+        <SideBar />
+      </div>
       <Outlet />
     </section>
   );

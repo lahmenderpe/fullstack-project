@@ -29,5 +29,9 @@
 |            |      | - Update Button component so that it gets rendered with different colors      |
 |            |      | - Add box shadow to dropdown component                                        |
 |            |      | - Make the side bar fixed during scrolling                                    |
-|            |      | - Resolve Eslint warnings                                                     |
-|   Total    | 70   |                                                                               |
+| 21.04.2024 | 6    | - Add FilterForm component                                                    |
+|            |      | - Improve dropdown component                                                  |
+|            |      | - Improve input component                                                     |
+|            |      | - Improve JobItem component                                                   |
+|            |      |                                                                               |
+|   Total    | 76   |                                                                               |

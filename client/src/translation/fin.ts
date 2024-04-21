@@ -22,7 +22,7 @@ const lang = {
   // Sidebar
   sidebar_all_jobs: "Kaikki työpaikat",
   sidebar_add_job: "Lisää työpaikka",
-  sidebar_filter: "Suodatin",
+  sidebar_profile: "Profiili",
 
   // About page
   about_page_text:

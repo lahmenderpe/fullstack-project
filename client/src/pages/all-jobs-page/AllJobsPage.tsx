@@ -1,6 +1,6 @@
 import { FC } from "react";
 import "./allJobsPage.style.scss";
-import { Pagination, JobItem, PageTitle } from "../../components";
+import { Pagination, JobItem, PageTitle, FilterForm } from "../../components";
 import { JobItemTypes } from "../../@types/components/componentTypes";
 
 const jobsArray: JobItemTypes[] = [
@@ -130,6 +130,8 @@ const AllJobsPage: FC = () => {
   return (
     <section className="all-jobs-page">
       <PageTitle>All Jobs</PageTitle>
+      <FilterForm />
+      <h4 style={{ marginBottom: 20 }}>{jobsArray.length} item found</h4>
       <div className="jobs-wrapper">
         {jobsArray.map((job) => {
           const {

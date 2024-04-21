@@ -1,6 +1,8 @@
 import { MdOutlineWork } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
-import { FaFilter } from "react-icons/fa6";
+import { IoPersonSharp } from "react-icons/io5";
+
+import { CgProfile } from "react-icons/cg";
 
 const links = [
   {
@@ -21,11 +23,11 @@ const links = [
   },
   {
     id: 3,
-    title: "Filter",
-    name: "filter",
-    icon: <FaFilter size={20} />,
-    translationKey: "sidebar_filter",
-    to: "/filter",
+    title: "Profile",
+    name: "profile",
+    icon: <IoPersonSharp size={20} />,
+    translationKey: "sidebar_profile",
+    to: "/profile",
   },
 ];
 

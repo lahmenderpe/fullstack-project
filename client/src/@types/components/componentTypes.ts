@@ -4,7 +4,7 @@ export type ButtonType = {
   small?: boolean;
   deleteBtn?: boolean;
   editBtn?: boolean;
-  action: () => void;
+  action: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
 export type CardType = {
@@ -71,6 +71,7 @@ export type InputType = {
   placeholder?: string;
   label?: string;
   required?: boolean;
+  small?: boolean;
 };
 
 export type DropdownItem = {
@@ -82,6 +83,7 @@ export type DropdownProps = {
   items: DropdownItem[];
   onSelect: (item: string) => void;
   selected: DropdownItem | null;
+  label?: string;
 };
 
 export type AvatarType = {

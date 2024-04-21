@@ -12,6 +12,7 @@ const Input: FC<InputType> = ({
   placeholder,
   label,
   required,
+  small,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -23,7 +24,7 @@ const Input: FC<InputType> = ({
   const inputType = type === "password" && showPassword ? "text" : defaultType;
 
   return (
-    <section className="input__wrapper">
+    <section className={`input__wrapper ${small ? "small" : ""}`}>
       <div>
         {label ? <label htmlFor={id}>{label}</label> : ""}
         {required ? <span className="input__required">*</span> : ""}

@@ -23,8 +23,8 @@ const JobItem: React.FC<JobItemTypes> = ({
       <header>
         <Avatar name={companyName} />
         <div>
-          <h2>{jobTitle}</h2>
-          <div> {companyName}</div>
+          <h2 className="job-title">{jobTitle}</h2>
+          <div className="company"> {companyName}</div>
         </div>
       </header>
       <div className="seperator"></div>
@@ -42,7 +42,7 @@ const JobItem: React.FC<JobItemTypes> = ({
         <div>
           <div className="created">
             <FaCalendarAlt size={18} />
-            Created at {createdAt ? createdAt.toLocaleDateString() : "N/A"}
+            Applied at {createdAt ? createdAt.toLocaleDateString() : "N/A"}
           </div>
           <Badge type={jobStatus}>{jobStatus}</Badge>
         </div>

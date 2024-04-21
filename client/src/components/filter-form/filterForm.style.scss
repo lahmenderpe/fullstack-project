@@ -1,0 +1,24 @@
+@use "../../style/" as *;
+
+.filter-form {
+  background-color: $white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid $border-color;
+  margin-bottom: 20px;
+
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .input__wrapper {
+      margin-bottom: 0 !important ;
+      flex: 1;
+    }
+
+    .dropdown {
+      flex: 1;
+    }
+  }
+}

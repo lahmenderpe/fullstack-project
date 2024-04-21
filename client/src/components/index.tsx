@@ -14,6 +14,7 @@ import JobItem from "./job-item/JobItem";
 import PageTitle from "./page-title/PageTitle";
 import Avatar from "./avatar/Avatar";
 import Badge from "./badge/Badge";
+import FilterForm from "./filter-form/FilterForm";
 
 export {
   Button,
@@ -32,4 +33,5 @@ export {
   PageTitle,
   Avatar,
   Badge,
+  FilterForm,
 };

@@ -8,7 +8,7 @@ import {
   AuthPage,
   AppPage,
   AllJobsPage,
-  FilterPage,
+  ProfilePage,
   AddNewJobPage,
   NotFoundPage,
   AboutPage,
@@ -33,7 +33,7 @@ const CustomRouter = () => {
           }
         >
           <Route index element={<AllJobsPage />} />
-          <Route path="/filter" element={<FilterPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/add-job" element={<AddNewJobPage />} />
         </Route>
 

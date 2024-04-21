@@ -4,8 +4,14 @@ import {
   DropdownProps,
   DropdownItem,
 } from "../../@types/components/componentTypes";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-const Dropdown: React.FC<DropdownProps> = ({ items, onSelect, selected }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+  items,
+  onSelect,
+  selected,
+  label,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<DropdownItem | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -40,28 +46,38 @@ const Dropdown: React.FC<DropdownProps> = ({ items, onSelect, selected }) => {
 
   return (
     <div className="dropdown" ref={dropdownRef}>
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        style={{ cursor: "pointer", marginBottom: "10px" }}
-        className="dropdown__selected"
-      >
-        {selectedItem && selectedItem.text}
-      </div>
-      {isOpen && (
-        <div className="dropdown__items">
-          {items.map((item) => (
-            <div
-              className={`dropdown__item ${
-                selected?.id === item.id ? "selected" : ""
-              }`}
-              key={item.id}
-              onClick={() => handleSelect(item)}
-            >
-              {item.text}
-            </div>
-          ))}
+      {label ? (
+        <div className="dropdown__label" onClick={() => setIsOpen(!isOpen)}>
+          {label}
         </div>
+      ) : (
+        ""
       )}
+      <section>
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          style={{ cursor: "pointer", marginBottom: "10px" }}
+          className="dropdown__selected"
+        >
+          {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+          {selectedItem && selectedItem.text}
+        </div>
+        {isOpen && (
+          <div className="dropdown__items">
+            {items.map((item) => (
+              <div
+                className={`dropdown__item ${
+                  selected?.id === item.id ? "selected" : ""
+                }`}
+                key={item.id}
+                onClick={() => handleSelect(item)}
+              >
+                {item.text}
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 };

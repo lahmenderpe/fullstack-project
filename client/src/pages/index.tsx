@@ -3,7 +3,7 @@ import AppPage from "./app-page/AppPage";
 import AboutPage from "./about-page/AboutPage";
 import AddNewJobPage from "./add-job-page/AddNewJobPage";
 import AllJobsPage from "./all-jobs-page/AllJobsPage";
-import FilterPage from "./filter-page/FilterPage";
+import ProfilePage from "./filter-page/ProfilePage";
 import NotFoundPage from "./404/404";
 
 export {
@@ -12,6 +12,6 @@ export {
   AboutPage,
   AddNewJobPage,
   AllJobsPage,
-  FilterPage,
+  ProfilePage,
   NotFoundPage,
 };

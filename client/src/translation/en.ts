@@ -21,7 +21,7 @@ const lang = {
   // Sider bar
   sidebar_all_jobs: "All Jobs",
   sidebar_add_job: "Add Job",
-  sidebar_filter: "Filter",
+  sidebar_profile: "Profile",
 
   // About page
   about_page_text:

@@ -21,4 +21,14 @@
       flex: 1;
     }
   }
+
+  .reset-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .filter-form-title {
+    color: $grey;
+  }
 }

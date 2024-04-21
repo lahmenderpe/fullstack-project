@@ -5,6 +5,7 @@ export type AppContexType = {
   selectedPage: string;
   setSelectedPage: (value: string) => void;
   updateFilterSet: (value: FilterType) => void;
+  setInitialFilters: (filter: any) => void;
 };
 
 export type FilterType = {

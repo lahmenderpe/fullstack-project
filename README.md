@@ -24,14 +24,15 @@
 | 12.04.2024 | 5    | - refactor dropdown to make it reusable, implement initial translations       |
 | 14.04.2024 | 3    | - add initial pagination logic to server, add pagination component            |
 | 14.04.2024 | 2    | - add about page and it's translation                                         |
-| 20.04.2024 | 9    | - Add PageTitle, Avatar, Seperator, Badge and JobItem components              |
-|            |      | - Move types into dedicated file                                              |
-|            |      | - Update Button component so that it gets rendered with different colors      |
-|            |      | - Add box shadow to dropdown component                                        |
-|            |      | - Make the side bar fixed during scrolling                                    |
+| 20.04.2024 | 4    | - Add PageTitle, Avatar, Seperator, Badge and JobItem components              |
+| 20.04.2024 | 1    | - Move types into dedicated file                                              |
+| 20.04.2024 | 1    | - Update Button component so that it gets rendered with different colors      |
+| 20.04.2024 | 1    | - Add box shadow to dropdown component                                        |
+| 20.04.2024 | 1    | - Make the side bar fixed during scrolling                                    |
 | 21.04.2024 | 6    | - Add FilterForm component                                                    |
 |            |      | - Improve dropdown component                                                  |
 |            |      | - Improve input component                                                     |
 |            |      | - Improve JobItem component                                                   |
+| 21.04.2024 | 2    | - Add translations to all components                                          |
 |            |      |                                                                               |
-|   Total    | 76   |                                                                               |
+|   Total    | 78   |                                                                               |

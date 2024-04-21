@@ -3,7 +3,7 @@ import { ChildrenType } from "../../@types/commonTypes";
 import "./badge.styles.scss";
 
 type BadgeType = {
-  type: "pending" | "declined" | "interview" | "job offer";
+  type: string;
 };
 
 const Badge: FC<ChildrenType & BadgeType> = ({ children, type }) => {
@@ -11,10 +11,10 @@ const Badge: FC<ChildrenType & BadgeType> = ({ children, type }) => {
 
   const generateClassName = (type: string, classNames: string[]) => {
     const temp = [...classNames];
-    if (type === "pending") temp.push("pending");
-    if (type === "declined") temp.push("declined");
-    if (type === "interview") temp.push("interview");
-    if (type === "job offer") temp.push("job-offer");
+    if (type.toLowerCase() === "pending") temp.push("pending");
+    if (type.toLowerCase() === "declined") temp.push("declined");
+    if (type.toLowerCase() === "interview") temp.push("interview");
+    if (type.toLowerCase() === "job offer") temp.push("job-offer");
 
     return temp.join(" ");
   };

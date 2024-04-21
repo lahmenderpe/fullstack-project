@@ -14,11 +14,21 @@ const jobsScheme = mongoose.Schema({
     required: false,
   },
   jobType: {
-    type: String,
+    type: {
+      name: String,
+      translationKey: String,
+    },
     required: false,
   },
   createdAt: {
     type: Date,
+    required: false,
+  },
+  jobStatus: {
+    type: {
+      name: String,
+      translationKey: String,
+    },
     required: false,
   },
   isUpdated: {

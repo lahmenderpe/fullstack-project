@@ -39,7 +39,7 @@ const LoginContent: FC<LoginContentType> = ({
           required
         />
         <Button primary action={handleLogin}>
-          {translate("login_button_text")}
+          {translate("login_button")}
         </Button>
         <div className="card__register">
           {translate("login_dont_have_account_text")}{" "}
@@ -53,7 +53,7 @@ const LoginContent: FC<LoginContentType> = ({
           <span className="seperator__line"></span>
         </div>
         <Button secondary action={handleDemo}>
-          {translate("try_demo_button_text")}
+          {translate("demo_button")}
         </Button>
       </div>
     </section>

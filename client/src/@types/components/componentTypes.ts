@@ -21,12 +21,18 @@ export type JobItemTypes = {
   jobTitle: string;
   companyName: string;
   location?: string;
-  jobType?: string;
+  jobType?: {
+    text: string;
+    translationKey: string;
+  };
   createdAt?: Date;
   isUpdated: boolean;
   updatedAt?: Date | null | undefined;
   user: string;
-  jobStatus: "pending" | "declined" | "interview" | "job offer";
+  jobStatus: {
+    text: string;
+    translationKey: string;
+  };
 };
 
 export type SidebarLinkType = {

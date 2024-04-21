@@ -2,8 +2,6 @@ import { MdOutlineWork } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { IoPersonSharp } from "react-icons/io5";
 
-import { CgProfile } from "react-icons/cg";
-
 const links = [
   {
     id: 1,

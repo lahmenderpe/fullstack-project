@@ -5,7 +5,11 @@ import {
   FilterType,
 } from "../@types/context/AppContextTypes";
 import reducer from "../reducer/appReducer";
-import { SET_SELECTED_PAGE, UPDATE_FILTER_SET } from "../reducer/reducerTokens";
+import {
+  SET_SELECTED_PAGE,
+  UPDATE_FILTER_SET,
+  SET_INITIAL_FILTER_STATE,
+} from "../reducer/reducerTokens";
 
 export const AppContext = createContext<
   null | (AppContexType & AppContextStateType)
@@ -33,8 +37,14 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_FILTER_SET, payload: value });
   };
 
+  const setInitialFilters = (filter: any) => {
+    dispatch({ type: SET_INITIAL_FILTER_STATE, payload: filter });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, setSelectedPage, updateFilterSet }}>
+    <AppContext.Provider
+      value={{ ...state, setSelectedPage, updateFilterSet, setInitialFilters }}
+    >
       {children}
     </AppContext.Provider>
   );

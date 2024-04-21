@@ -7,6 +7,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { MdOutlineWork } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
 import Badge from "../badge/Badge";
+import useTranslate from "../../hooks/useTranslate";
 
 const JobItem: React.FC<JobItemTypes> = ({
   jobTitle,
@@ -18,6 +19,8 @@ const JobItem: React.FC<JobItemTypes> = ({
   jobStatus,
   user,
 }) => {
+  const { translate } = useTranslate();
+
   return (
     <section className="job-item">
       <header>
@@ -36,23 +39,26 @@ const JobItem: React.FC<JobItemTypes> = ({
           </div>
           <div className="type">
             <MdOutlineWork size={18} />
-            {jobType}
+            {translate(jobType!.translationKey)}
           </div>
         </div>
         <div>
           <div className="created">
             <FaCalendarAlt size={18} />
-            Applied at {createdAt ? createdAt.toLocaleDateString() : "N/A"}
+            {translate("applied_at")}{" "}
+            {createdAt ? createdAt.toLocaleDateString() : "N/A"}
           </div>
-          <Badge type={jobStatus}>{jobStatus}</Badge>
+          <Badge type={jobStatus.text}>
+            {translate(jobStatus.translationKey)}
+          </Badge>
         </div>
       </main>
       <footer>
         <Button primary small editBtn action={() => {}}>
-          Edit
+          {translate("edit_button")}
         </Button>
         <Button primary small deleteBtn action={() => {}}>
-          Delete
+          {translate("delete_button")}
         </Button>
       </footer>
     </section>

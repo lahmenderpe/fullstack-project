@@ -9,7 +9,7 @@ export type ButtonType = {
 
 export type CardType = {
   height?: number;
-  width: number;
+  width: number | string;
 };
 
 export type LinkButtonType = {

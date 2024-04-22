@@ -34,5 +34,6 @@
 |            |      | - Improve input component                                                     |
 |            |      | - Improve JobItem component                                                   |
 | 21.04.2024 | 2    | - Add translations to all components                                          |
+| 22.04.2024 | 2    | - Make the filter form reusable                                               |
 |            |      |                                                                               |
-|   Total    | 78   |                                                                               |
+|   Total    | 80   |                                                                               |

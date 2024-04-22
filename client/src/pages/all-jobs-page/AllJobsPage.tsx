@@ -1,8 +1,16 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import "./allJobsPage.style.scss";
-import { Pagination, JobItem, PageTitle, FilterForm } from "../../components";
+import {
+  Pagination,
+  JobItem,
+  PageTitle,
+  JobForm,
+  Button,
+} from "../../components";
 import { JobItemTypes } from "../../@types/components/componentTypes";
 import useTranslate from "../../hooks/useTranslate";
+import { GrPowerReset } from "react-icons/gr";
+import useAppContext from "../../hooks/useAppContext";
 
 const jobsArray: JobItemTypes[] = [
   {
@@ -98,11 +106,47 @@ const jobsArray: JobItemTypes[] = [
 ];
 
 const AllJobsPage: FC = () => {
-  const { translate } = useTranslate();
+  const { translate, language } = useTranslate();
+  const { filter, setInitialFilters } = useAppContext();
+
+  const handleClearFilter = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined
+  ) => {};
+
+  const handleFilterChange = () => {};
+
+  const renderActionButton = () => {
+    return (
+      <Button action={handleClearFilter} deleteBtn small>
+        <div className="reset-wrapper">
+          <GrPowerReset />
+          {translate("clear_filters_button")}
+        </div>
+      </Button>
+    );
+  };
+
+  useEffect(() => {
+    const filterState = {
+      search: "",
+      status: { id: "all", text: translate(filter.status.id) },
+      type: { id: "all", text: translate(filter.type.id) },
+      sort: { id: "latest", text: translate(filter.sort.id) },
+    };
+    setInitialFilters(filterState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
+
   return (
     <section className="all-jobs-page">
       <PageTitle>{translate("all_jobs_page_title")}</PageTitle>
-      <FilterForm />
+      <JobForm
+        formTitle={translate("filter_form_title")}
+        actionButtons={renderActionButton}
+        onChange={handleFilterChange}
+        inputId="search"
+        inputLabel={translate("search")}
+      />
       <h4 style={{ marginBottom: 20 }}>
         {jobsArray.length} {translate("items_found")}
       </h4>

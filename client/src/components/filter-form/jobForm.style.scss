@@ -1,6 +1,6 @@
 @use "../../style/" as *;
 
-.filter-form {
+.form {
   background-color: $white;
   padding: 20px;
   border-radius: 10px;
@@ -28,7 +28,8 @@
     gap: 10px;
   }
 
-  .filter-form-title {
+  .form-title {
     color: $grey;
+    margin-bottom: 10px;
   }
 }

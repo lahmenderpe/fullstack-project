@@ -55,6 +55,7 @@ const lang = {
   about_page_text:
     "Tervetuloa JobHunteriin, intuitiiviseen sovellukseen, joka on suunniteltu työnhakuprosessisi tehostamiseen. Tässä kilpailuhenkisessä työmarkkinassa on tärkeää pysyä järjestelmällisenä ja ajan tasalla hakemuksiesi kanssa. Job Tracker mahdollistaa hakemiesi työpaikkojen lisäämisen ja hallinnan, hakemuksen tilan päivittämisen edistymisen mukaan ja tärkeiden päivämäärien sekä palautteen seurannan. Olitpa sitten vastavalmistunut työmarkkinoille siirtyvä, kokenut ammattilainen uusien mahdollisuuksien etsinnässä tai jotain siltä väliltä, Job Tracker auttaa sinua navigoimaan työnhaun monimutkaisuuksien läpi vaivattomasti. Aloita tänään ja ota ohjat omassa työnhaussasi!",
   about_page_title: "Tietoa JobHunterista",
+  filter_form_title: "Suodatinlomake",
 };
 
 export default lang;

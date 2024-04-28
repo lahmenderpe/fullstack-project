@@ -7,7 +7,10 @@
   height: 100vh;
   background-color: $white;
   border-right: 1px solid $border-color;
-  padding: 90px 20px;
+  padding: 90px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   a {
     display: flex;

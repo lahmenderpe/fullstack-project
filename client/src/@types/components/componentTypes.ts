@@ -4,6 +4,7 @@ export type ButtonType = {
   small?: boolean;
   deleteBtn?: boolean;
   editBtn?: boolean;
+  logout?: boolean;
   action: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
@@ -86,8 +87,12 @@ export type DropdownItem = {
 };
 
 export type DropdownProps = {
+  name: string;
   items: DropdownItem[];
-  onSelect: (item: string) => void;
+  onSelect: (item: {
+    name: string;
+    item: { id: string; text: string };
+  }) => void;
   selected: DropdownItem | null;
   label?: string;
 };

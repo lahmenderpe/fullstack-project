@@ -35,5 +35,6 @@
 |            |      | - Improve JobItem component                                                   |
 | 21.04.2024 | 2    | - Add translations to all components                                          |
 | 22.04.2024 | 2    | - Make the filter form reusable                                               |
+| 28.04.2024 | 2    | - Synch from with state, add logout button, fix translation on form           |
 |            |      |                                                                               |
 |   Total    | 80   |                                                                               |

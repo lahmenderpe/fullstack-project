@@ -3,12 +3,15 @@ import {
   AppContexType,
   AppContextStateType,
   FilterType,
+  AddJobType,
 } from "../@types/context/AppContextTypes";
 import reducer from "../reducer/appReducer";
 import {
   SET_SELECTED_PAGE,
   UPDATE_FILTER_SET,
   SET_INITIAL_FILTER_STATE,
+  SET_INITIAL_ADD_JOB,
+  UPDATE_ADD_JOB,
 } from "../reducer/reducerTokens";
 
 export const AppContext = createContext<
@@ -24,6 +27,13 @@ const initialState: AppContextStateType = {
     type: { id: "all", text: "all" },
     sort: { id: "latest", text: "latest" },
   },
+  addJob: {
+    jobTitle: "",
+    company: "",
+    location: "",
+    status: { id: "all", text: "all" },
+    type: { id: "all", text: "all" },
+  },
 };
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
@@ -37,13 +47,28 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_FILTER_SET, payload: value });
   };
 
-  const setInitialFilters = (filter: any) => {
+  const setInitialFilters = (filter: FilterType) => {
     dispatch({ type: SET_INITIAL_FILTER_STATE, payload: filter });
+  };
+
+  const setInitialAddJob = (value: AddJobType) => {
+    dispatch({ type: SET_INITIAL_ADD_JOB, payload: value });
+  };
+
+  const updateAddJob = (value: AddJobType) => {
+    dispatch({ type: UPDATE_ADD_JOB, payload: value });
   };
 
   return (
     <AppContext.Provider
-      value={{ ...state, setSelectedPage, updateFilterSet, setInitialFilters }}
+      value={{
+        ...state,
+        setSelectedPage,
+        updateFilterSet,
+        setInitialFilters,
+        setInitialAddJob,
+        updateAddJob,
+      }}
     >
       {children}
     </AppContext.Provider>

@@ -31,11 +31,11 @@ const useItems = () => {
       text: translate("all"),
     },
     {
-      id: "full-time",
+      id: "full_time",
       text: translate("full_time"),
     },
     {
-      id: "part-time",
+      id: "part_time",
       text: translate("part_time"),
     },
   ];

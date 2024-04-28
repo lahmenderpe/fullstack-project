@@ -8,22 +8,49 @@ import "./jobForm.style.scss";
 
 type JobFormType = {
   formTitle: string;
-  onChange: () => void;
+  onChange: (state?: any) => void;
   actionButtons: () => React.ReactNode;
-  inputId: string;
-  inputLabel: string;
+  sort?: boolean;
+  location?: boolean;
+  company?: boolean;
+  state: any;
+  search?: boolean;
+  jobTitle?: boolean;
 };
 
 const JobForm: FC<JobFormType> = ({
   onChange,
   actionButtons,
   formTitle,
-  inputId,
-  inputLabel,
+  sort,
+  company,
+  location,
+  state,
+  search,
+  jobTitle,
 }) => {
-  const { filter } = useAppContext();
   const { translate } = useTranslate();
   const { statusItems, typeItems, sortItems } = useItems();
+
+  const handleOnChange = (e?: React.ChangeEvent<HTMLInputElement>) => {
+    if (e) {
+      const { name, value } = e.target;
+      const tempState = { ...state, [name]: value };
+      console.log(tempState);
+      onChange(tempState);
+    }
+  };
+
+  const handleOnChangeDropdown = (e: {
+    name: string;
+    item: { id: string; text: string };
+  }) => {
+    const tempState = {
+      ...state,
+      [e.name]: { id: e.item.id, text: e.item.text },
+    };
+    onChange(tempState);
+  };
 
   return (
     <section className="form">
@@ -31,32 +58,69 @@ const JobForm: FC<JobFormType> = ({
       <div>
         <form>
           <div className="form-wrapper">
-            <Input
-              onchange={onChange}
-              value={filter.search}
-              name={inputId}
-              id={inputId}
-              label={inputLabel}
-              small
-            />
+            {search && (
+              <Input
+                onchange={handleOnChange}
+                value={state.search!}
+                name={"search"}
+                id={"search"}
+                label={translate("search")}
+                small
+              />
+            )}
+            {jobTitle && (
+              <Input
+                onchange={handleOnChange}
+                value={state.jobTitle!}
+                name={"jobTitle"}
+                id={"jobTitle"}
+                label={translate("add_job")}
+                small
+              />
+            )}
+            {location && (
+              <Input
+                onchange={handleOnChange}
+                value={state.location!}
+                name={"location"}
+                id={"location"}
+                label={translate("location")}
+                small
+              />
+            )}
+            {company && (
+              <Input
+                onchange={handleOnChange}
+                value={state.company!}
+                name={"company"}
+                id={"company"}
+                label={translate("company")}
+                small
+              />
+            )}
             <Dropdown
-              selected={filter.status}
+              name="status"
+              selected={state.status}
               items={statusItems}
-              onSelect={onChange}
+              onSelect={handleOnChangeDropdown}
               label={translate("status")}
             />
             <Dropdown
-              selected={filter.type}
+              name="type"
+              selected={state.type}
               items={typeItems}
-              onSelect={onChange}
+              onSelect={handleOnChangeDropdown}
               label={translate("type")}
             />
-            <Dropdown
-              selected={filter.sort}
-              items={sortItems}
-              onSelect={onChange}
-              label={translate("sort")}
-            />
+            {sort && (
+              <Dropdown
+                name="sort"
+                selected={state.sort}
+                items={sortItems}
+                onSelect={handleOnChangeDropdown}
+                label={translate("sort")}
+              />
+            )}
           </div>
           {actionButtons()}
         </form>

@@ -24,8 +24,11 @@ const Header: FC = () => {
     },
   ];
 
-  const handleSelect = (id: string) => {
-    changeLanguage(id);
+  const handleSelect = (item: {
+    name: string;
+    item: { id: string; text: string };
+  }) => {
+    changeLanguage(item.item.id);
   };
 
   const findSelected = () => {
@@ -48,6 +51,7 @@ const Header: FC = () => {
           </NavLink>
         )}
         <Dropdown
+          name="translation"
           items={langs}
           onSelect={handleSelect}
           selected={findSelected()}

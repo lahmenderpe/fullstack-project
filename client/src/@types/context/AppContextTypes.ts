@@ -6,6 +6,8 @@ export type AppContexType = {
   setSelectedPage: (value: string) => void;
   updateFilterSet: (value: FilterType) => void;
   setInitialFilters: (filter: any) => void;
+  setInitialAddJob: (filter: any) => void;
+  updateAddJob: (filter: any) => void;
 };
 
 export type FilterType = {
@@ -15,10 +17,19 @@ export type FilterType = {
   sort: DropdownItem;
 };
 
+export type AddJobType = {
+  jobTitle: string;
+  company: string;
+  location: string;
+  status: DropdownItem;
+  type: DropdownItem;
+};
+
 export type AppContextStateType = {
   jobs: JobType[];
   selectedPage: string;
   filter: FilterType;
+  addJob: AddJobType;
 };
 
 export type JobType = {

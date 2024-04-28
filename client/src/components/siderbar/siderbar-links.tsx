@@ -1,6 +1,5 @@
 import { MdOutlineWork } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
-import { IoPersonSharp } from "react-icons/io5";
 
 const links = [
   {
@@ -18,14 +17,6 @@ const links = [
     icon: <BiSolidBookAdd size={20} />,
     translationKey: "sidebar_add_job",
     to: "/add-job",
-  },
-  {
-    id: 3,
-    title: "Profile",
-    name: "profile",
-    icon: <IoPersonSharp size={20} />,
-    translationKey: "sidebar_profile",
-    to: "/profile",
   },
 ];
 

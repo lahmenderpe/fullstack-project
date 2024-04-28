@@ -51,3 +51,14 @@
   background-color: $job-offer-bg !important;
   border-color: $job-offer-bg;
 }
+
+.btn.logout {
+  color: $white;
+  background-color: $tomato;
+  border-color: $tomato;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}

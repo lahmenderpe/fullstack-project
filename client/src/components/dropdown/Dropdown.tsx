@@ -7,6 +7,7 @@ import {
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Dropdown: React.FC<DropdownProps> = ({
+  name,
   items,
   onSelect,
   selected,
@@ -19,7 +20,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const handleSelect = (item: DropdownItem) => {
     setSelectedItem(item);
     setIsOpen(false);
-    onSelect(item.id);
+    onSelect({ name, item });
   };
 
   useEffect(() => {

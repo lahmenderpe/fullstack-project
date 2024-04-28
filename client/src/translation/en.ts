@@ -14,6 +14,7 @@ const lang = {
   // All jobs page
   register_form_title: "Filter Form",
   all_jobs_page_title: "All Jobs",
+  add_new_job_page_title: "Add New Job",
 
   // Buttons
   login_button: "Login",
@@ -40,6 +41,9 @@ const lang = {
   status: "Status",
   type: "Type",
   sort: "Sort",
+  add_job: "Job title",
+  company: "Company",
+  location: "Location",
 
   // Header
   header_about_text: "About",
@@ -56,7 +60,8 @@ const lang = {
     "Welcome to JobHunter, the intuitive application designed to streamline your job application process. In today's competitive job market, staying organized and on top of your applications is key to success. Job Tracker allows you to add and manage the jobs you apply for, update their status as your application progresses, and keep track of important dates and feedback. Whether you're a recent graduate entering the workforce, a seasoned professional exploring new opportunities, or somewhere in between, Job Tracker is here to help you navigate the complexities of job hunting with ease. Get started today and take control of your job search!",
   about_page_title: "About JobHunter",
 
-  filter_form_title: "Filter form",
+  form_title_filter: "Filter form",
+  form_title_add: "Add job form",
 };
 
 export default lang;

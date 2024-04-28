@@ -14,6 +14,7 @@ const lang = {
   // All jobs page
   register_form_title: "Suodatinlomake",
   all_jobs_page_title: "Kaikki Työt",
+  add_new_job_page_title: "Lisää Uusi Työtä",
 
   // Buttons
   login_button: "Kirjaudu sisään",
@@ -34,6 +35,9 @@ const lang = {
   items_found: "kohdetta löydetty",
   latest: "Viimeisin",
   earliest: "Aikaisin",
+  add_job: "Työnimike",
+  company: "Yritys",
+  location: "Sijainti",
 
   // Labels
   search: "Hae",
@@ -55,7 +59,8 @@ const lang = {
   about_page_text:
     "Tervetuloa JobHunteriin, intuitiiviseen sovellukseen, joka on suunniteltu työnhakuprosessisi tehostamiseen. Tässä kilpailuhenkisessä työmarkkinassa on tärkeää pysyä järjestelmällisenä ja ajan tasalla hakemuksiesi kanssa. Job Tracker mahdollistaa hakemiesi työpaikkojen lisäämisen ja hallinnan, hakemuksen tilan päivittämisen edistymisen mukaan ja tärkeiden päivämäärien sekä palautteen seurannan. Olitpa sitten vastavalmistunut työmarkkinoille siirtyvä, kokenut ammattilainen uusien mahdollisuuksien etsinnässä tai jotain siltä väliltä, Job Tracker auttaa sinua navigoimaan työnhaun monimutkaisuuksien läpi vaivattomasti. Aloita tänään ja ota ohjat omassa työnhaussasi!",
   about_page_title: "Tietoa JobHunterista",
-  filter_form_title: "Suodatinlomake",
+  form_title_filter: "Suodatinlomake",
+  form_title_add: "Lisää töitä lomake",
 };
 
 export default lang;

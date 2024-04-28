@@ -1,5 +1,9 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import "./allJobsPage.style.scss";
+import { JobItemTypes } from "../../@types/components/componentTypes";
+import useTranslate from "../../hooks/useTranslate";
+import { GrPowerReset } from "react-icons/gr";
+import useAppContext from "../../hooks/useAppContext";
 import {
   Pagination,
   JobItem,
@@ -7,10 +11,6 @@ import {
   JobForm,
   Button,
 } from "../../components";
-import { JobItemTypes } from "../../@types/components/componentTypes";
-import useTranslate from "../../hooks/useTranslate";
-import { GrPowerReset } from "react-icons/gr";
-import useAppContext from "../../hooks/useAppContext";
 
 const jobsArray: JobItemTypes[] = [
   {
@@ -107,13 +107,15 @@ const jobsArray: JobItemTypes[] = [
 
 const AllJobsPage: FC = () => {
   const { translate, language } = useTranslate();
-  const { filter, setInitialFilters } = useAppContext();
+  const { filter, setInitialFilters, updateFilterSet } = useAppContext();
 
   const handleClearFilter = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined
   ) => {};
 
-  const handleFilterChange = () => {};
+  const handleFilterChange = (state: any) => {
+    updateFilterSet(state);
+  };
 
   const renderActionButton = () => {
     return (
@@ -128,10 +130,10 @@ const AllJobsPage: FC = () => {
 
   useEffect(() => {
     const filterState = {
-      search: "",
-      status: { id: "all", text: translate(filter.status.id) },
-      type: { id: "all", text: translate(filter.type.id) },
-      sort: { id: "latest", text: translate(filter.sort.id) },
+      search: filter.search,
+      status: { id: filter.status.id, text: translate(filter.status.id) },
+      type: { id: filter.type.id, text: translate(filter.type.id) },
+      sort: { id: filter.sort.id, text: translate(filter.sort.id) },
     };
     setInitialFilters(filterState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -141,11 +143,12 @@ const AllJobsPage: FC = () => {
     <section className="all-jobs-page">
       <PageTitle>{translate("all_jobs_page_title")}</PageTitle>
       <JobForm
-        formTitle={translate("filter_form_title")}
+        state={filter}
+        formTitle={translate("form_title_filter")}
         actionButtons={renderActionButton}
         onChange={handleFilterChange}
-        inputId="search"
-        inputLabel={translate("search")}
+        search
+        sort
       />
       <h4 style={{ marginBottom: 20 }}>
         {jobsArray.length} {translate("items_found")}

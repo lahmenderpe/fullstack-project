@@ -11,6 +11,7 @@ const Button: FC<ChildrenType & ButtonType> = ({
   deleteBtn,
   editBtn,
   action,
+  logout,
 }) => {
   const classNames = ["btn"];
 
@@ -20,6 +21,7 @@ const Button: FC<ChildrenType & ButtonType> = ({
     if (small) classNames.push("small");
     if (deleteBtn) classNames.push("delete");
     if (editBtn) classNames.push("edit");
+    if (logout) classNames.push("logout");
 
     return classNames.join(" ");
   };

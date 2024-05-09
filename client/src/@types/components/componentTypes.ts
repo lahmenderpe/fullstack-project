@@ -5,6 +5,7 @@ export type ButtonType = {
   deleteBtn?: boolean;
   editBtn?: boolean;
   logout?: boolean;
+  disabled?: boolean;
   action: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
@@ -44,22 +45,8 @@ export type SidebarLinkType = {
   to: string;
 };
 
-export type RegisterContentType = {
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  handleLogin: () => void;
-  handleRegister: () => void;
-  handleDemo: () => void;
-};
-
 export type LoginContentType = {
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  handleLogin: () => void;
+  handleLogin: (data: any) => void;
   handleRegister: () => void;
   handleDemo: () => void;
 };

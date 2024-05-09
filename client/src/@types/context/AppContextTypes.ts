@@ -8,6 +8,8 @@ export type AppContexType = {
   setInitialFilters: (filter: any) => void;
   setInitialAddJob: (filter: any) => void;
   updateAddJob: (filter: any) => void;
+  updateIsLogin: (filter: any) => void;
+  resetFilters: () => void;
 };
 
 export type FilterType = {
@@ -30,6 +32,7 @@ export type AppContextStateType = {
   selectedPage: string;
   filter: FilterType;
   addJob: AddJobType;
+  isLogin: boolean;
 };
 
 export type JobType = {

@@ -1,17 +1,18 @@
 import { FC } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useTranslate from "../../hooks/useTranslate";
+import useAppContext from "../../hooks/useAppContext";
 import Dropdown from "../dropdown/Dropdown";
 import logo from "../../assets/logo.svg";
 import "./header.style.scss";
 
 const Header: FC = () => {
-  const { language, changeLanguage } = useTranslate();
+  const { language, changeLanguage, translate } = useTranslate();
   const { isAuthenticated } = useAuth();
-  const { state } = useLocation();
-  const { translate } = useTranslate();
-  const isLogin = state?.target === "login";
+  const { isLogin, updateIsLogin } = useAppContext();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const langs = [
     {
@@ -23,6 +24,12 @@ const Header: FC = () => {
       text: "Suomi",
     },
   ];
+
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    updateIsLogin(!isLogin);
+    if (location.pathname === "/about") navigate("/auth");
+  };
 
   const handleSelect = (item: {
     name: string;
@@ -46,9 +53,10 @@ const Header: FC = () => {
       <section className="header__links">
         <NavLink to="/about">{translate("header_about_text")}</NavLink>
         {!isAuthenticated && (
-          <NavLink to="/auth">
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a href="" onClick={handleNav}>
             {translate(isLogin ? "header_register_text" : "header_login_text")}
-          </NavLink>
+          </a>
         )}
         <Dropdown
           name="translation"

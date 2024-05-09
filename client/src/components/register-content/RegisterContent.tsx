@@ -1,18 +1,35 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Input from "../input/Input";
 import Button from "../button/Button";
 import LinkButton from "../link-button/LinkButton";
-import { RegisterContentType } from "../../@types/components/componentTypes";
+import "./registerContent.style.scss";
+
+export type RegisterContentType = {
+  handleRegister: (data: any) => void;
+  handleLogin: () => void;
+  isProcessing: boolean;
+};
 
 const RegisterContent: FC<RegisterContentType> = ({
-  email,
-  setEmail,
-  password,
-  setPassword,
-  handleLogin,
   handleRegister,
-  handleDemo,
+  handleLogin,
+  isProcessing,
 }) => {
+  const [state, setState] = useState({
+    email: "",
+    userName: "",
+    password: "",
+  });
+  const isDisabled =
+    !!state.email && !!state.userName && !!state.password && !isProcessing;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    const newState = { ...state, [name]: value };
+    setState(newState);
+  };
+
   return (
     <section>
       <div className="card__form-group">
@@ -21,8 +38,18 @@ const RegisterContent: FC<RegisterContentType> = ({
           name="email"
           label="Email"
           placeholder="Enter your email address"
-          value={email}
-          onchange={(e) => setEmail(e.target.value)}
+          value={state.email}
+          onchange={(e) => handleChange(e)}
+          required
+        />
+        <Input
+          id="userName"
+          name="userName"
+          label="User Name"
+          type="text"
+          placeholder="Enter your user name"
+          value={state.userName}
+          onchange={(e) => handleChange(e)}
           required
         />
         <Input
@@ -30,26 +57,22 @@ const RegisterContent: FC<RegisterContentType> = ({
           name="password"
           label="Password"
           type="password"
-          placeholder="Enter your password"
-          value={password}
-          onchange={(e) => setPassword(e.target.value)}
+          placeholder="Enter password"
+          value={state.password}
+          onchange={(e) => handleChange(e)}
           required
         />
-        <Button primary action={handleLogin}>
-          Login
+        <Button
+          primary
+          action={() => handleRegister(state)}
+          disabled={!isDisabled}
+        >
+          Create Account
         </Button>
-        <div className="card__register">
-          Don't have an account?{" "}
-          <LinkButton action={handleRegister}>Register here</LinkButton>
+        <div className="have-account">
+          <span>Already have an account?</span>
+          <LinkButton action={handleLogin}>Login here</LinkButton>
         </div>
-        <div className="card__seperator">
-          <span className="seperator__line"></span>
-          <span>Or try demo</span>
-          <span className="seperator__line"></span>
-        </div>
-        <Button secondary action={handleDemo}>
-          Try Demo
-        </Button>
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ const Button: FC<ChildrenType & ButtonType> = ({
   editBtn,
   action,
   logout,
+  disabled,
 }) => {
   const classNames = ["btn"];
 
@@ -22,12 +23,19 @@ const Button: FC<ChildrenType & ButtonType> = ({
     if (deleteBtn) classNames.push("delete");
     if (editBtn) classNames.push("edit");
     if (logout) classNames.push("logout");
+    // if (disabled) classNames.push("disabled");
 
     return classNames.join(" ");
   };
 
+  console.log(disabled);
+
   return (
-    <button className={genarateClassname()} onClick={action}>
+    <button
+      className={genarateClassname()}
+      onClick={action}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

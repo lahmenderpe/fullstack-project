@@ -6,6 +6,8 @@ import useAppContext from "../../hooks/useAppContext";
 import { SidebarLinkType } from "../../@types/components/componentTypes";
 import Button from "../button/Button";
 import { IoLogOutOutline } from "react-icons/io5";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 import "./sidebar.style.scss";
 
 const SideBar: FC = () => {
@@ -13,8 +15,13 @@ const SideBar: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { translate } = useTranslate();
+  const { setUser, setIsAuthenticated } = useAuth();
 
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    setUser(null);
+    setIsAuthenticated(false);
+    toast.success("Loged out sucessfully!");
+  };
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,

@@ -18,7 +18,7 @@ const AddNewJobPage: FC = () => {
 
   const renderActionButtons = () => {
     return (
-      <Button action={handleAction} small primary>
+      <Button action={handleAction} small editBtn>
         Add Job
       </Button>
     );

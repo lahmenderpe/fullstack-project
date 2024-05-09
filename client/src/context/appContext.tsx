@@ -12,6 +12,7 @@ import {
   SET_INITIAL_FILTER_STATE,
   SET_INITIAL_ADD_JOB,
   UPDATE_ADD_JOB,
+  UPDATE_IS_LOGIN,
 } from "../reducer/reducerTokens";
 
 export const AppContext = createContext<
@@ -34,6 +35,7 @@ const initialState: AppContextStateType = {
     status: { id: "all", text: "all" },
     type: { id: "all", text: "all" },
   },
+  isLogin: true,
 };
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
@@ -59,6 +61,20 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_ADD_JOB, payload: value });
   };
 
+  const updateIsLogin = (value: boolean) => {
+    dispatch({ type: UPDATE_IS_LOGIN, payload: value });
+  };
+
+  const resetFilters = () => {
+    const filter = {
+      search: "",
+      status: { id: "all", text: "all" },
+      type: { id: "all", text: "all" },
+      sort: { id: "latest", text: "latest" },
+    };
+    updateFilterSet(filter);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -68,6 +84,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setInitialFilters,
         setInitialAddJob,
         updateAddJob,
+        resetFilters,
+        updateIsLogin,
       }}
     >
       {children}

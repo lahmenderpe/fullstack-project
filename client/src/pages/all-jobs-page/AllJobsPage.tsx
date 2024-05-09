@@ -107,11 +107,17 @@ const jobsArray: JobItemTypes[] = [
 
 const AllJobsPage: FC = () => {
   const { translate, language } = useTranslate();
-  const { filter, setInitialFilters, updateFilterSet } = useAppContext();
+  const { filter, setInitialFilters, updateFilterSet, resetFilters } =
+    useAppContext();
 
   const handleClearFilter = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined
-  ) => {};
+  ) => {
+    if (e) {
+      e.preventDefault();
+      resetFilters();
+    }
+  };
 
   const handleFilterChange = (state: any) => {
     updateFilterSet(state);

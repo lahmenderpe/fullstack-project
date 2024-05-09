@@ -6,6 +6,7 @@ import {
   UPDATE_FILTER_SET,
   SET_INITIAL_ADD_JOB,
   UPDATE_ADD_JOB,
+  UPDATE_IS_LOGIN,
 } from "./reducerTokens";
 
 const reducer = (state: AppContextStateType, action: ReducerType) => {
@@ -31,6 +32,11 @@ const reducer = (state: AppContextStateType, action: ReducerType) => {
 
   if (action.type === UPDATE_ADD_JOB) {
     const newState = { ...state, addJob: action.payload };
+    return newState;
+  }
+
+  if (action.type === UPDATE_IS_LOGIN) {
+    const newState = { ...state, isLogin: action.payload };
     return newState;
   }
 

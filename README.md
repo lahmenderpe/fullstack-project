@@ -36,5 +36,6 @@
 | 21.04.2024 | 2    | - Add translations to all components                                          |
 | 22.04.2024 | 2    | - Make the filter form reusable                                               |
 | 28.04.2024 | 2    | - Synch from with state, add logout button, fix translation on form           |
+| 28.04.2024 | 5    | - Handle register and login with backend, hangle logout                       |
 |            |      |                                                                               |
 |   Total    | 80   |                                                                               |

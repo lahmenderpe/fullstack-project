@@ -6,18 +6,18 @@ const validateRegister = require("../validateRequest.js");
 
 const login = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!username || !password) {
+    if (!email || !password) {
       return res.status(400).send("Username and password must be provided");
     }
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user) {
       return res
         .status(404)
-        .send(`There is not any account with the username "${username}"`);
+        .send(`There is not any account with the email "${email}"`);
     }
 
     const verifiedPassword = await bcrypt.compare(password, user.password);
@@ -26,7 +26,7 @@ const login = async (req, res, next) => {
       return res.status(400).send("Wrong password");
     }
 
-    const payload = { id: user.id, name: user.name, username: user.username };
+    const payload = { id: user.id, name: user.name, email: user.email };
 
     const token = jwt.sign(payload, process.env.SECRET);
     res.status(200).json({ ...payload, token });
@@ -59,7 +59,7 @@ const register = async (req, res, next) => {
     const newUser = new User({ ...credentials, password: hash });
     await newUser.save();
 
-    res.status(201).send();
+    res.status(201).json({ message: "User created" });
   } catch (error) {
     next(error);
     console.log(error);

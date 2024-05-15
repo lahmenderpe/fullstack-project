@@ -13,7 +13,7 @@ Stack that used:
 - Express.js
 - Lodash
 
-JobHunter is a web application that allows to the user to create account and keep track of the applications that s/he applied. With the application user can:
+JobHunter is a web application that allows to the user to create account and keep track of the job applications that s/he applied. With the application user can:
 
 - Create account
 - Login into application

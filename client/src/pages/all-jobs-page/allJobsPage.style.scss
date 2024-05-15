@@ -1,3 +1,5 @@
+@use "../../style/" as *;
+
 .all-jobs-page {
   padding: 60px 20px 20px;
   display: flex;
@@ -8,5 +10,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+
+  .no-jobs-text {
+    font-size: 1.2rem;
+    color: rgba($grey, $alpha: 0.7);
+    font-weight: 900;
   }
 }

@@ -1,4 +1,5 @@
 import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   BrowserRouter as Router,
   Routes,
   Route,
@@ -12,6 +13,7 @@ import {
   AddNewJobPage,
   NotFoundPage,
   AboutPage,
+  EditJobPage,
 } from "../pages";
 import { Footer, Header } from "../components";
 import AuthRouter from "./AuthRouter";
@@ -35,6 +37,7 @@ const CustomRouter = () => {
           <Route index element={<AllJobsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/add-job" element={<AddNewJobPage />} />
+          <Route path="/edit-job/:id" element={<EditJobPage />} />
         </Route>
 
         <Route

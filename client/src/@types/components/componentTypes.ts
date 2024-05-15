@@ -6,6 +6,7 @@ export type ButtonType = {
   editBtn?: boolean;
   logout?: boolean;
   disabled?: boolean;
+  loading?: boolean;
   action: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
@@ -24,15 +25,12 @@ export type JobItemTypes = {
   companyName: string;
   location?: string;
   jobType?: {
-    text: string;
+    name: string;
     translationKey: string;
   };
-  createdAt?: Date;
-  isUpdated: boolean;
-  updatedAt?: Date | null | undefined;
   user: string;
   jobStatus: {
-    text: string;
+    name: string;
     translationKey: string;
   };
 };
@@ -49,6 +47,7 @@ export type LoginContentType = {
   handleLogin: (data: any) => void;
   handleRegister: () => void;
   handleDemo: () => void;
+  isProcessing: boolean;
 };
 
 export type LogoType = {

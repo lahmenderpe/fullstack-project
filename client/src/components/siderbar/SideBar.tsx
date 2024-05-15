@@ -6,6 +6,7 @@ import useAppContext from "../../hooks/useAppContext";
 import { SidebarLinkType } from "../../@types/components/componentTypes";
 import Button from "../button/Button";
 import { IoLogOutOutline } from "react-icons/io5";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import "./sidebar.style.scss";
@@ -16,11 +17,13 @@ const SideBar: FC = () => {
   const location = useLocation();
   const { translate } = useTranslate();
   const { setUser, setIsAuthenticated } = useAuth();
+  const { removeItem } = useLocalStorage("user");
 
   const handleLogout = () => {
     setUser(null);
     setIsAuthenticated(false);
-    toast.success("Loged out sucessfully!");
+    removeItem();
+    toast.success(translate("notification_logout"));
   };
 
   const handleLinkClick = (
@@ -55,7 +58,7 @@ const SideBar: FC = () => {
       </div>
       <Button action={handleLogout} logout>
         <IoLogOutOutline size={24} />
-        Logout
+        {translate("logout_button")}
       </Button>
     </section>
   );

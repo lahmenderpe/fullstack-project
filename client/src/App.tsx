@@ -1,13 +1,23 @@
 import { useEffect } from "react";
 import "./style/_main.scss";
 import CustomRouter from "./router/CustomRouter";
-import { ToastContainer, toast, Bounce } from "react-toastify";
+import { ToastContainer, Bounce } from "react-toastify";
+import useLocalStorage from "./hooks/useLocalStorage";
+import useAuth from "./hooks/useAuth";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  const { getItem } = useLocalStorage("user");
+  const { setUserAuthenticated } = useAuth();
+
   useEffect(() => {
-    toast("Oh yeah");
+    const user = getItem();
+    if (user) {
+      setUserAuthenticated(user);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       <CustomRouter />;

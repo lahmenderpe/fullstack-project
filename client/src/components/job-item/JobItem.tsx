@@ -5,21 +5,45 @@ import Button from "../button/Button";
 import "./JobItem.style.scss";
 import { FaLocationArrow } from "react-icons/fa6";
 import { MdOutlineWork } from "react-icons/md";
-import { FaCalendarAlt } from "react-icons/fa";
+import { deleteJob } from "../../services/backend/backend";
+import useAppContext from "../../hooks/useAppContext";
+import useAuth from "../../hooks/useAuth";
 import Badge from "../badge/Badge";
 import useTranslate from "../../hooks/useTranslate";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const JobItem: React.FC<JobItemTypes> = ({
+  id,
   jobTitle,
   companyName,
   location,
   jobType,
-  createdAt,
-  updatedAt,
   jobStatus,
-  user,
 }) => {
   const { translate } = useTranslate();
+  const { user } = useAuth();
+  const { setAllJobs, jobs } = useAppContext();
+  const navigate = useNavigate();
+
+  const handleDelete = async (id: string) => {
+    try {
+      console.log(user);
+      if (user) {
+        await deleteJob(id, user.token);
+        const tempJobs = [...jobs].filter((item) => item.id !== id);
+        setAllJobs(tempJobs);
+        toast.success(translate("notification_job_deleted"));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleEdit = (id: string) => {
+    const url = `/edit-job/${id}`;
+    navigate(url);
+  };
 
   return (
     <section className="job-item">
@@ -43,21 +67,21 @@ const JobItem: React.FC<JobItemTypes> = ({
           </div>
         </div>
         <div>
-          <div className="created">
-            <FaCalendarAlt size={18} />
-            {translate("applied_at")}{" "}
-            {createdAt ? createdAt.toLocaleDateString() : "N/A"}
-          </div>
-          <Badge type={jobStatus.text}>
+          <Badge type={jobStatus.translationKey}>
             {translate(jobStatus.translationKey)}
           </Badge>
         </div>
       </main>
       <footer>
-        <Button primary small editBtn action={() => {}}>
+        <Button primary small editBtn action={() => handleEdit(id.toString())}>
           {translate("edit_button")}
         </Button>
-        <Button primary small deleteBtn action={() => {}}>
+        <Button
+          primary
+          small
+          deleteBtn
+          action={() => handleDelete(id.toString())}
+        >
           {translate("delete_button")}
         </Button>
       </footer>

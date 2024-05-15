@@ -13,6 +13,7 @@ const Button: FC<ChildrenType & ButtonType> = ({
   action,
   logout,
   disabled,
+  loading,
 }) => {
   const classNames = ["btn"];
 
@@ -28,14 +29,20 @@ const Button: FC<ChildrenType & ButtonType> = ({
     return classNames.join(" ");
   };
 
-  console.log(disabled);
-
   return (
     <button
       className={genarateClassname()}
       onClick={action}
       disabled={disabled}
     >
+      {loading && (
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
       {children}
     </button>
   );

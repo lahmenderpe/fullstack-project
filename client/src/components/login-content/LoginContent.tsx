@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Input from "../input/Input";
 import Button from "../button/Button";
 import LinkButton from "../link-button/LinkButton";
@@ -9,6 +9,7 @@ const LoginContent: FC<LoginContentType> = ({
   handleLogin,
   handleRegister,
   handleDemo,
+  isProcessing,
 }) => {
   const [state, setState] = useState({
     email: "",
@@ -16,7 +17,7 @@ const LoginContent: FC<LoginContentType> = ({
   });
   const { translate } = useTranslate();
 
-  const isDisabled = !!state.email && !!state.password;
+  const isDisabled = !!state.email && !!state.password && !isProcessing;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,6 +25,20 @@ const LoginContent: FC<LoginContentType> = ({
     const newState = { ...state, [name]: value };
     setState(newState);
   };
+
+  useEffect(() => {
+    const handleKeyup = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        console.log(state);
+        handleLogin(state);
+      }
+    };
+
+    document.addEventListener("keyup", handleKeyup);
+
+    return () => document.removeEventListener("keyup", handleKeyup);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
 
   return (
     <section>
@@ -51,6 +66,7 @@ const LoginContent: FC<LoginContentType> = ({
           primary
           action={() => handleLogin(state)}
           disabled={!isDisabled}
+          loading={isProcessing}
         >
           {translate("login_button")}
         </Button>

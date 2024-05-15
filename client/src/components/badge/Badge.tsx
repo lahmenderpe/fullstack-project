@@ -14,7 +14,7 @@ const Badge: FC<ChildrenType & BadgeType> = ({ children, type }) => {
     if (type.toLowerCase() === "pending") temp.push("pending");
     if (type.toLowerCase() === "declined") temp.push("declined");
     if (type.toLowerCase() === "interview") temp.push("interview");
-    if (type.toLowerCase() === "job offer") temp.push("job-offer");
+    if (type.toLowerCase() === "job_offer") temp.push("job-offer");
 
     return temp.join(" ");
   };

@@ -4,6 +4,7 @@ import AboutPage from "./about-page/AboutPage";
 import AddNewJobPage from "./add-job-page/AddNewJobPage";
 import AllJobsPage from "./all-jobs-page/AllJobsPage";
 import ProfilePage from "./filter-page/ProfilePage";
+import EditJobPage from "./edit-job-page/EditJobPage";
 import NotFoundPage from "./404/404";
 
 export {
@@ -14,4 +15,5 @@ export {
   AllJobsPage,
   ProfilePage,
   NotFoundPage,
+  EditJobPage,
 };

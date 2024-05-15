@@ -1,114 +1,39 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import "./allJobsPage.style.scss";
-import { JobItemTypes } from "../../@types/components/componentTypes";
 import useTranslate from "../../hooks/useTranslate";
 import { GrPowerReset } from "react-icons/gr";
 import useAppContext from "../../hooks/useAppContext";
-import {
-  Pagination,
-  JobItem,
-  PageTitle,
-  JobForm,
-  Button,
-} from "../../components";
-
-const jobsArray: JobItemTypes[] = [
-  {
-    id: "1",
-    jobTitle: "Software Engineer",
-    companyName: "Tech Innovations Inc.",
-    location: "San Francisco, CA",
-    jobType: {
-      text: "Full-time",
-      translationKey: "full_time",
-    },
-    createdAt: new Date("2024-04-01"),
-    isUpdated: false,
-    updatedAt: null,
-    user: "630c3311fedb46123a907c99",
-    jobStatus: {
-      text: "interview",
-      translationKey: "interview",
-    },
-  },
-  {
-    id: "2",
-    jobTitle: "Project Manager",
-    companyName: "Creative Solutions Ltd.",
-    location: "New York, NY",
-    jobType: {
-      text: "Part-time",
-      translationKey: "part_time",
-    },
-    createdAt: new Date("2024-03-28"),
-    isUpdated: true,
-    updatedAt: new Date("2024-04-15"),
-    user: "630c3311fedb46123a907c99",
-    jobStatus: {
-      text: "Job Offer",
-      translationKey: "job_offer",
-    },
-  },
-  {
-    id: "3",
-    jobTitle: "Data Analyst",
-    companyName: "Data Experts LLC",
-    location: "Chicago, IL",
-    jobType: {
-      text: "Part-time",
-      translationKey: "part_time",
-    },
-    createdAt: new Date("2024-01-20"),
-    isUpdated: true,
-    updatedAt: new Date("2024-02-20"),
-    user: "630c3311fedb46123a907c99",
-    jobStatus: {
-      text: "pending",
-      translationKey: "pending",
-    },
-  },
-  {
-    id: "4",
-    jobTitle: "Graphic Designer",
-    companyName: "Design Studio",
-    location: "Los Angeles, CA",
-    jobType: {
-      text: "Full-time",
-      translationKey: "full_time",
-    },
-    createdAt: new Date("2024-03-05"),
-    isUpdated: false,
-    updatedAt: null,
-    user: "630c3311fedb46123a907c99",
-    jobStatus: {
-      text: "declined",
-      translationKey: "declined",
-    },
-  },
-  {
-    id: "5",
-    jobTitle: "Systems Administrator",
-    companyName: "IT Solutions Corp.",
-    location: "Austin, TX",
-    jobType: {
-      text: "Full-time",
-      translationKey: "full_time",
-    },
-    createdAt: new Date("2024-02-15"),
-    isUpdated: true,
-    updatedAt: new Date("2024-04-10"),
-    user: "630c3311fedb46123a907c99",
-    jobStatus: {
-      text: "interview",
-      translationKey: "interview",
-    },
-  },
-];
+import useAuth from "../../hooks/useAuth";
+import { getAllJobs } from "../../services/backend/backend";
+import { JobItem, PageTitle, JobForm, Button } from "../../components";
+import { JobItemTypes } from "../../@types/components/componentTypes";
+import { FilterType } from "../../@types/context/AppContextTypes";
 
 const AllJobsPage: FC = () => {
   const { translate, language } = useTranslate();
-  const { filter, setInitialFilters, updateFilterSet, resetFilters } =
-    useAppContext();
+  const {
+    jobs,
+    filter,
+    setInitialFilters,
+    updateFilterSet,
+    resetFilters,
+    setAllJobs,
+  } = useAppContext();
+  const { user } = useAuth();
+
+  const itemsToShow = filterJobs(jobs, filter);
+
+  function filterJobs(jobs: JobItemTypes[], filterSet: FilterType) {
+    return jobs.filter((job) => {
+      const statusFilter =
+        filterSet.status.id === "all" ||
+        job.jobStatus.translationKey === filterSet.status.id;
+      const typeFilter =
+        filterSet.type.id === "all" ||
+        job.jobType?.translationKey === filterSet.type.id;
+      return statusFilter && typeFilter;
+    });
+  }
 
   const handleClearFilter = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined
@@ -135,11 +60,27 @@ const AllJobsPage: FC = () => {
   };
 
   useEffect(() => {
+    const fetchJobs = async () => {
+      if (user) {
+        try {
+          const { id, token } = user;
+          const result = await getAllJobs(id, token);
+          if (!!result.data.length) {
+            setAllJobs(result.data);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+    fetchJobs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  useEffect(() => {
     const filterState = {
-      search: filter.search,
       status: { id: filter.status.id, text: translate(filter.status.id) },
       type: { id: filter.type.id, text: translate(filter.type.id) },
-      sort: { id: filter.sort.id, text: translate(filter.sort.id) },
     };
     setInitialFilters(filterState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -153,45 +94,41 @@ const AllJobsPage: FC = () => {
         formTitle={translate("form_title_filter")}
         actionButtons={renderActionButton}
         onChange={handleFilterChange}
-        search
-        sort
       />
       <h4 style={{ marginBottom: 20 }}>
-        {jobsArray.length} {translate("items_found")}
+        {itemsToShow.length} {translate("items_found")}
       </h4>
       <div className="jobs-wrapper">
-        {jobsArray.map((job) => {
-          const {
-            id,
-            jobTitle,
-            companyName,
-            location,
-            jobType,
-            createdAt,
-            isUpdated,
-            updatedAt,
-            user,
-            jobStatus,
-          } = job;
+        {!!itemsToShow.length ? (
+          itemsToShow.map((job) => {
+            const {
+              id,
+              jobTitle,
+              companyName,
+              location,
+              jobType,
+              user,
+              jobStatus,
+            } = job;
 
-          return (
-            <JobItem
-              key={id}
-              id={id}
-              jobTitle={jobTitle}
-              companyName={companyName}
-              location={location}
-              jobType={jobType}
-              createdAt={createdAt}
-              isUpdated={isUpdated}
-              updatedAt={updatedAt}
-              user={user}
-              jobStatus={jobStatus}
-            />
-          );
-        })}
+            return (
+              <JobItem
+                key={id}
+                id={id}
+                jobTitle={jobTitle}
+                companyName={companyName}
+                location={location}
+                jobType={jobType}
+                user={user}
+                jobStatus={jobStatus}
+              />
+            );
+          })
+        ) : (
+          <div className="no-jobs-text">No jobs to show</div>
+        )}
       </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </section>
   );
 };

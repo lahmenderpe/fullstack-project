@@ -20,7 +20,7 @@ const useItems = () => {
       text: translate("declined"),
     },
     {
-      id: "job-offer",
+      id: "job_offer",
       text: translate("job_offer"),
     },
   ];

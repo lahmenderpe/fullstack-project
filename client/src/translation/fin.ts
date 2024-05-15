@@ -3,8 +3,8 @@ const lang = {
   page_title_register: "Rekisteröidy",
 
   // Login page
-  login_email_placeholder: "Anna sähköpostiosoitteesi",
-  login_password_placeholder: "Anna salasanasi tähän",
+  login_email_placeholder: "Syötä sähköpostiosoitteesi",
+  login_password_placeholder: "Syötä salasanasi tähän",
   register_text: "Rekisteröidy tästä",
   login_dont_have_account_text: "Eikö sinulla ole tiliä?",
   login_email_label: "Sähköposti",
@@ -12,16 +12,19 @@ const lang = {
   try_demo_text: "Tai kokeile demoa",
 
   // All jobs page
-  register_form_title: "Suodatinlomake",
+  register_form_title: "Suodatuslomake",
   all_jobs_page_title: "Kaikki Työt",
-  add_new_job_page_title: "Lisää Uusi Työtä",
+  add_new_job_page_title: "Lisää Uusi Työ",
 
   // Buttons
-  login_button: "Kirjaudu sisään",
-  demo_button: "Kokeile demoa",
+  login_button: "Kirjaudu",
+  demo_button: "Kokeile Demoa",
   edit_button: "Muokkaa",
   delete_button: "Poista",
-  clear_filters_button: "Tyhjennä suodattimet",
+  clear_filters_button: "Tyhjennä Suodattimet",
+  save_job_button: "Tallenna Työ",
+  cancel_button: "Peruuta",
+  logout_button: "Kirjaudu Ulos",
 
   // Badges
   interview: "Haastattelu",
@@ -33,34 +36,45 @@ const lang = {
   full_time: "Kokopäiväinen",
   part_time: "Osa-aikainen",
   items_found: "kohdetta löydetty",
-  latest: "Viimeisin",
-  earliest: "Aikaisin",
-  add_job: "Työnimike",
-  company: "Yritys",
-  location: "Sijainti",
+  latest: "Uusin",
+  earliest: "Vanhin",
 
   // Labels
-  search: "Hae",
+  search: "Etsi",
   status: "Tila",
   type: "Tyyppi",
   sort: "Lajittele",
+  add_job: "Työn nimike",
+  company: "Yritys",
+  location: "Sijainti",
 
   // Header
   header_about_text: "Tietoa",
   header_register_text: "Rekisteröidy",
-  header_login_text: "Kirjaudu sisään",
+  header_login_text: "Kirjaudu",
 
   // Sider bar
-  sidebar_all_jobs: "Kaikki työpaikat",
-  sidebar_add_job: "Lisää työpaikka",
+  sidebar_all_jobs: "Kaikki Työt",
+  sidebar_add_job: "Lisää Työ",
   sidebar_profile: "Profiili",
 
   // About page
   about_page_text:
-    "Tervetuloa JobHunteriin, intuitiiviseen sovellukseen, joka on suunniteltu työnhakuprosessisi tehostamiseen. Tässä kilpailuhenkisessä työmarkkinassa on tärkeää pysyä järjestelmällisenä ja ajan tasalla hakemuksiesi kanssa. Job Tracker mahdollistaa hakemiesi työpaikkojen lisäämisen ja hallinnan, hakemuksen tilan päivittämisen edistymisen mukaan ja tärkeiden päivämäärien sekä palautteen seurannan. Olitpa sitten vastavalmistunut työmarkkinoille siirtyvä, kokenut ammattilainen uusien mahdollisuuksien etsinnässä tai jotain siltä väliltä, Job Tracker auttaa sinua navigoimaan työnhaun monimutkaisuuksien läpi vaivattomasti. Aloita tänään ja ota ohjat omassa työnhaussasi!",
+    "Tervetuloa JobHunteriin, intuitiiviseen sovellukseen, joka on suunniteltu tehostamaan työnhakuprosessiasi. Kilpailukykyisillä työmarkkinoilla järjestyksessä pysyminen ja hakemustesi seuranta ovat avainasemassa menestykseen. Job Trackerin avulla voit lisätä ja hallita hakemiasi töitä, päivittää niiden tilaa hakemuksesi edetessä ja seurata tärkeitä päivämääriä ja palautteita. Olitpa vastavalmistunut työelämään siirtyvä, kokenut ammattilainen, joka etsii uusia mahdollisuuksia, tai jotain siltä väliltä, Job Tracker auttaa sinua navigoimaan työnhaun monimutkaisuuksissa vaivattomasti. Aloita tänään ja ota työnhakusi hallintaan!",
   about_page_title: "Tietoa JobHunterista",
-  form_title_filter: "Suodatinlomake",
-  form_title_add: "Lisää töitä lomake",
+
+  form_title_filter: "Suodatuslomake",
+  form_title_add: "Lisää työn lomake",
+
+  //Edit page
+  edit_job_page_title: "Muokkaa työtä",
+
+  notification_job_added: "Työ lisätty onnistuneesti!",
+  notification_job_updated: "Työ päivitetty onnistuneesti!",
+  notification_job_deleted: "Työ poistettu onnistuneesti!",
+  notification_logout: "Kirjauduit ulos onnistuneesti!",
+  notification_login: "Kirjauduit sisään onnistuneesti!",
+  notification_register: "Tili luotu onnistuneesti",
 };
 
 export default lang;

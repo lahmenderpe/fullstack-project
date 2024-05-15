@@ -1,8 +1,8 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import Input from "../input/Input";
 import Dropdown from "../dropdown/Dropdown";
-import useAppContext from "../../hooks/useAppContext";
 import useTranslate from "../../hooks/useTranslate";
+import { useLocation } from "react-router-dom";
 import useItems from "../../hooks/useItems";
 import "./jobForm.style.scss";
 
@@ -31,12 +31,19 @@ const JobForm: FC<JobFormType> = ({
 }) => {
   const { translate } = useTranslate();
   const { statusItems, typeItems, sortItems } = useItems();
+  const loc = useLocation();
+
+  const formSelectItem = (arr: any) => {
+    if (loc.pathname === "/add-job" || loc.pathname.includes("/edit-job")) {
+      arr.shift();
+    }
+    return arr;
+  };
 
   const handleOnChange = (e?: React.ChangeEvent<HTMLInputElement>) => {
     if (e) {
       const { name, value } = e.target;
       const tempState = { ...state, [name]: value };
-      console.log(tempState);
       onChange(tempState);
     }
   };
@@ -101,14 +108,14 @@ const JobForm: FC<JobFormType> = ({
             <Dropdown
               name="status"
               selected={state.status}
-              items={statusItems}
+              items={formSelectItem(statusItems)}
               onSelect={handleOnChangeDropdown}
               label={translate("status")}
             />
             <Dropdown
               name="type"
               selected={state.type}
-              items={typeItems}
+              items={formSelectItem(typeItems)}
               onSelect={handleOnChangeDropdown}
               label={translate("type")}
             />

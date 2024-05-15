@@ -22,6 +22,9 @@ const lang = {
   edit_button: "Edit",
   delete_button: "Delete",
   clear_filters_button: "Clear Filters",
+  save_job_button: "Save Job",
+  cancel_button: "Cancel",
+  logout_button: "Logout",
 
   // Badges
   interview: "Interview",
@@ -62,6 +65,16 @@ const lang = {
 
   form_title_filter: "Filter form",
   form_title_add: "Add job form",
+
+  //Edit page
+  edit_job_page_title: "Edit job",
+
+  notification_job_added: "Job added successfully!",
+  notification_job_updated: "Job updated successfully!",
+  notification_job_deleted: "Job deleted successfully!",
+  notification_logout: "Loged out sucessfully!",
+  notification_login: "Logged in sucessfully!",
+  notification_register: "Acount created successfully",
 };
 
 export default lang;

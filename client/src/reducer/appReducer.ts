@@ -7,6 +7,8 @@ import {
   SET_INITIAL_ADD_JOB,
   UPDATE_ADD_JOB,
   UPDATE_IS_LOGIN,
+  SET_ALL_JOBS,
+  UPDATE_STATE,
 } from "./reducerTokens";
 
 const reducer = (state: AppContextStateType, action: ReducerType) => {
@@ -38,6 +40,18 @@ const reducer = (state: AppContextStateType, action: ReducerType) => {
   if (action.type === UPDATE_IS_LOGIN) {
     const newState = { ...state, isLogin: action.payload };
     return newState;
+  }
+
+  if (action.type === SET_ALL_JOBS) {
+    const newState = { ...state, jobs: action.payload };
+    return newState;
+  }
+
+  if (action.type === UPDATE_STATE) {
+    const tempJobs = [...state.jobs];
+    const index = tempJobs.findIndex((item) => item.id === action.payload.id);
+    const newJobs = tempJobs.splice(index, 1, action.payload);
+    return { ...state, jobs: newJobs };
   }
 
   return state;

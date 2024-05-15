@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Input from "../input/Input";
 import Button from "../button/Button";
 import LinkButton from "../link-button/LinkButton";
@@ -21,7 +21,11 @@ const RegisterContent: FC<RegisterContentType> = ({
     password: "",
   });
   const isDisabled =
-    !!state.email && !!state.userName && !!state.password && !isProcessing;
+    !!state.email &&
+    !!state.userName &&
+    !!state.password &&
+    !isProcessing &&
+    !isProcessing;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -29,6 +33,19 @@ const RegisterContent: FC<RegisterContentType> = ({
     const newState = { ...state, [name]: value };
     setState(newState);
   };
+
+  useEffect(() => {
+    const handleKeyup = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        handleRegister(state);
+      }
+    };
+
+    document.addEventListener("keyup", handleKeyup);
+
+    return () => document.removeEventListener("keyup", handleKeyup);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
 
   return (
     <section>
@@ -66,6 +83,7 @@ const RegisterContent: FC<RegisterContentType> = ({
           primary
           action={() => handleRegister(state)}
           disabled={!isDisabled}
+          loading={isProcessing}
         >
           Create Account
         </Button>

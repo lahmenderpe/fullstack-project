@@ -13,7 +13,11 @@ import {
   SET_INITIAL_ADD_JOB,
   UPDATE_ADD_JOB,
   UPDATE_IS_LOGIN,
+  ADD_NEW_JOB,
+  SET_ALL_JOBS,
+  UPDATE_STATE,
 } from "../reducer/reducerTokens";
+import { JobItemTypes } from "../@types/components/componentTypes";
 
 export const AppContext = createContext<
   null | (AppContexType & AppContextStateType)
@@ -23,17 +27,15 @@ const initialState: AppContextStateType = {
   jobs: [],
   selectedPage: "jobs",
   filter: {
-    search: "",
     status: { id: "all", text: "all" },
     type: { id: "all", text: "all" },
-    sort: { id: "latest", text: "latest" },
   },
   addJob: {
     jobTitle: "",
     company: "",
     location: "",
-    status: { id: "all", text: "all" },
-    type: { id: "all", text: "all" },
+    status: { id: "pending", text: "pending" },
+    type: { id: "full_time", text: "full-time" },
   },
   isLogin: true,
 };
@@ -65,12 +67,22 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_IS_LOGIN, payload: value });
   };
 
+  const addNewJobToState = (data: JobItemTypes) => {
+    dispatch({ type: ADD_NEW_JOB, payload: data });
+  };
+
+  const setAllJobs = (data: JobItemTypes[]) => {
+    dispatch({ type: SET_ALL_JOBS, payload: data });
+  };
+
+  const updateState = (data: JobItemTypes) => {
+    dispatch({ type: UPDATE_STATE, payload: data });
+  };
+
   const resetFilters = () => {
     const filter = {
-      search: "",
       status: { id: "all", text: "all" },
       type: { id: "all", text: "all" },
-      sort: { id: "latest", text: "latest" },
     };
     updateFilterSet(filter);
   };
@@ -86,6 +98,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         updateAddJob,
         resetFilters,
         updateIsLogin,
+        addNewJobToState,
+        setAllJobs,
+        updateState,
       }}
     >
       {children}

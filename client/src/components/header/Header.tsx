@@ -10,7 +10,7 @@ import "./header.style.scss";
 const Header: FC = () => {
   const { language, changeLanguage, translate } = useTranslate();
   const { isAuthenticated } = useAuth();
-  const { isLogin, updateIsLogin } = useAppContext();
+  const { isLogin, updateIsLogin, setSelectedPage } = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,10 +43,14 @@ const Header: FC = () => {
     return selected || null;
   };
 
+  const updateCurrentPage = () => {
+    setSelectedPage("jobs");
+  };
+
   return (
     <header className="header">
       <section className="header__logo">
-        <NavLink to="/">
+        <NavLink to="/" onClick={updateCurrentPage}>
           <img src={logo} alt="logo" />
         </NavLink>
       </section>

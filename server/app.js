@@ -10,6 +10,7 @@ dotenv.config();
 const app = express();
 
 // middlewares
+app.use(express.static("build"));
 app.use(cors());
 app.use(express.json());
 

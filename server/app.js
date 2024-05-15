@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/jobs", validateToken, jobsRouter);
 app.use("/api/v1/user", userRouter);
 
 app.use(errorHandler);

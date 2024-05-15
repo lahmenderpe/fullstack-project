@@ -8,7 +8,7 @@ const {
 
 const jobRouter = express.Router();
 
-jobRouter.get("/", getAllJobs);
+jobRouter.get("/:id", getAllJobs);
 jobRouter.post("/", addNewJob);
 jobRouter.delete("/:id", deleteJob);
 jobRouter.put("/:id", updateJob);

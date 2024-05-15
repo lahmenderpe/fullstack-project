@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "nodemon index.js",
     "dev:test": "NODE_ENV=test nodemon index.js",
-    "test": "NODE_ENV=test jest --verbose --detectOpenHandles"
+    "test": "NODE_ENV=test jest --verbose --detectOpenHandles",
+    "build:ui": "rm -rf build && cd ../client && npm run build && cp -r build ../server && cd ../client rm -rf build",
+    "deploy": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "author": "Cihan Erenler",
   "license": "ISC",

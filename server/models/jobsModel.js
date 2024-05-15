@@ -20,23 +20,11 @@ const jobsScheme = mongoose.Schema({
     },
     required: false,
   },
-  createdAt: {
-    type: Date,
-    required: false,
-  },
   jobStatus: {
     type: {
       name: String,
       translationKey: String,
     },
-    required: false,
-  },
-  isUpdated: {
-    type: Boolean,
-    default: false,
-  },
-  updatedAt: {
-    type: Date,
     required: false,
   },
   user: {

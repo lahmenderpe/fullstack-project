@@ -14,11 +14,9 @@ async function findJobsWithPagination({ page, limit, id }) {
 }
 
 const getAllJobs = async (req, res, next) => {
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
-  const id = req.query.userId;
+  const { id } = req.params;
   try {
-    const jobs = await findJobsWithPagination({ page, limit, id });
+    const jobs = await Jobs.find({ user: id });
     res.json(jobs);
   } catch (error) {
     next(error);
@@ -56,11 +54,10 @@ const updateJob = async (req, res, next) => {
   try {
     const { id } = req.params;
     const job = req.body;
+    console.log(job, id);
     const updated = await Jobs.findByIdAndUpdate(id, job, {
       new: true,
     });
-
-    console.log(updated);
 
     if (!updated) {
       return res.status(404).send("Resource not found");

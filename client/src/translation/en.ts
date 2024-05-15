@@ -75,6 +75,11 @@ const lang = {
   notification_logout: "Loged out sucessfully!",
   notification_login: "Logged in sucessfully!",
   notification_register: "Acount created successfully",
+
+  page_title_all_jobs: "All Jobs",
+  page_title_add_job: "Add Job",
+  page_title_edit_job: "Edit job",
+  page_title_about: "About",
 };
 
 export default lang;

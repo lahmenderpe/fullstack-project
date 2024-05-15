@@ -1,6 +1,7 @@
 # JobHunter - Full Stack Web Application
 
 [Link to the application](https://jobhunter-fullstack-project.onrender.com)
+At first application may take some time to response because of the server waking time.
 
 ## About the application
 

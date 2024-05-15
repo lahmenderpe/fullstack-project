@@ -8,6 +8,7 @@ import { getAllJobs } from "../../services/backend/backend";
 import { JobItem, PageTitle, JobForm, Button } from "../../components";
 import { JobItemTypes } from "../../@types/components/componentTypes";
 import { FilterType } from "../../@types/context/AppContextTypes";
+import { setPageTitle } from "../../utils/utils";
 
 const AllJobsPage: FC = () => {
   const { translate, language } = useTranslate();
@@ -85,6 +86,10 @@ const AllJobsPage: FC = () => {
     setInitialFilters(filterState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
+
+  useEffect(() => {
+    setPageTitle(translate("page_title_all_jobs"));
+  });
 
   return (
     <section className="all-jobs-page">

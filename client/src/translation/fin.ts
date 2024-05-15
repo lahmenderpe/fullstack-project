@@ -75,6 +75,11 @@ const lang = {
   notification_logout: "Kirjauduit ulos onnistuneesti!",
   notification_login: "Kirjauduit sisään onnistuneesti!",
   notification_register: "Tili luotu onnistuneesti",
+
+  page_title_all_jobs: "Kaikki Työt",
+  page_title_add_job: "Lisää Työ",
+  page_title_edit_job: "Muokkaa Työtä",
+  page_title_about: "Tietoa",
 };
 
 export default lang;

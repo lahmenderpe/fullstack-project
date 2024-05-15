@@ -10,6 +10,7 @@ import { Button } from "../../components";
 import { toast } from "react-toastify";
 import "./editJob.style.scss";
 import * as _ from "lodash";
+import { setPageTitle } from "../../utils/utils";
 
 const EditJobPage: FC = () => {
   const [shouldDisabled, setShouldDisabled] = useState(true);
@@ -133,6 +134,11 @@ const EditJobPage: FC = () => {
     const isEqual = _.isEqual(clone, job);
     setShouldDisabled(isEqual);
   }, [clone, job]);
+
+  useEffect(() => {
+    setPageTitle(translate("page_title_edit_job"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="edit-job-page">

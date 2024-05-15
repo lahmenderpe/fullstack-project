@@ -9,6 +9,7 @@ import { AddJobType } from "../../@types/context/AppContextTypes";
 import { Button } from "../../components";
 import { toast } from "react-toastify";
 import "./addNewJob.style.scss";
+import { setPageTitle } from "../../utils/utils";
 
 const AddNewJobPage: FC = () => {
   const {
@@ -94,6 +95,11 @@ const AddNewJobPage: FC = () => {
     setInitialAddJob(newAddJob);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
+
+  useEffect(() => {
+    setPageTitle(translate("page_title_add_job"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="add-new-job-page">

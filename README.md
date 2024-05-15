@@ -1,6 +1,7 @@
 # JobHunter - Full Stack Web Application
 
 [Link to the application](https://jobhunter-fullstack-project.onrender.com)
+
 At first application may take some time to response because of the server waking time.
 
 ## About the application
@@ -13,6 +14,7 @@ Stack that used:
 - Axios
 - Express.js
 - Lodash
+- MongoDB
 
 JobHunter is a web application that allows to the user to create account and keep track of the job applications that s/he applied. With the application user can:
 

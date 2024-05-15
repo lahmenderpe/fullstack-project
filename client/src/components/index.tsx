@@ -16,6 +16,7 @@ import Avatar from "./avatar/Avatar";
 import Badge from "./badge/Badge";
 import JobForm from "./filter-form/JobForm";
 import RegisterContent from "./register-content/RegisterContent";
+import Email from "./email/Email";
 
 export {
   Button,

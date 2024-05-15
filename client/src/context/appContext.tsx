@@ -16,6 +16,7 @@ import {
   ADD_NEW_JOB,
   SET_ALL_JOBS,
   UPDATE_STATE,
+  RESET_ADD_JOB,
 } from "../reducer/reducerTokens";
 import { JobItemTypes } from "../@types/components/componentTypes";
 
@@ -79,6 +80,17 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_STATE, payload: data });
   };
 
+  const resetAddJobs = () => {
+    const addJob = {
+      jobTitle: "",
+      company: "",
+      location: "",
+      status: { id: "pending", text: "pending" },
+      type: { id: "full_time", text: "full-time" },
+    };
+    dispatch({ type: RESET_ADD_JOB, payload: addJob });
+  };
+
   const resetFilters = () => {
     const filter = {
       status: { id: "all", text: "all" },
@@ -101,6 +113,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         addNewJobToState,
         setAllJobs,
         updateState,
+        resetAddJobs,
       }}
     >
       {children}

@@ -13,6 +13,7 @@ export type AppContexType = {
   addNewJobToState: (data: any) => void;
   setAllJobs: (data: any) => void;
   updateState: (data: JobItemTypes) => void;
+  resetAddJobs: () => void;
 };
 
 export type FilterType = {

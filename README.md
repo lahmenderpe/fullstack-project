@@ -1,3 +1,28 @@
+# JobHunter - Full Stack Web Application
+
+[Link to the application](https://jobhunter-fullstack-project.onrender.com)
+
+## About the application
+
+Stack that used:
+
+- React
+- TypeScript
+- SCSS
+- Axios
+- Express.js
+- Lodash
+
+JobHunter is a web application that allows to the user to create account and keep track of the applications that s/he applied. With the application user can:
+
+- Create account
+- Login into application
+- Add jobs
+- Update job
+- Delete job
+- Filter through applied jobs
+- Change the application language between Finnish and English
+
 # Working time table
 
 |    date    | time | what have I done                                                              |

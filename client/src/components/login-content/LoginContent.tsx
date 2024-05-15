@@ -76,14 +76,6 @@ const LoginContent: FC<LoginContentType> = ({
             {translate("register_text")}
           </LinkButton>
         </div>
-        {/* <div className="card__seperator">
-          <span className="seperator__line"></span>
-          <span>{translate("try_demo_text")}</span>
-          <span className="seperator__line"></span>
-        </div>
-        <Button secondary action={handleDemo}>
-          {translate("demo_button")}
-        </Button> */}
       </div>
     </section>
   );

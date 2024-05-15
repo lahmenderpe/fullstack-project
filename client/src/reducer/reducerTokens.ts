@@ -9,3 +9,4 @@ export const ADD_NEW_JOB = "ADD_NEW_JOB";
 export const SET_ALL_JOBS = "SET_ALL_JOBS";
 export const DELETE_JOB_ITEM = "DELETE_JOB_ITEM";
 export const UPDATE_STATE = "UPDATE_STATE";
+export const RESET_ADD_JOB = "RESET_ADD_JOB";

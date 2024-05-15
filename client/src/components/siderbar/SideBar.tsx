@@ -12,7 +12,13 @@ import { toast } from "react-toastify";
 import "./sidebar.style.scss";
 
 const SideBar: FC = () => {
-  const { selectedPage, setSelectedPage } = useAppContext();
+  const {
+    selectedPage,
+    setSelectedPage,
+    setAllJobs,
+    resetFilters,
+    resetAddJobs,
+  } = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
   const { translate } = useTranslate();
@@ -23,6 +29,10 @@ const SideBar: FC = () => {
     setUser(null);
     setIsAuthenticated(false);
     removeItem();
+    setAllJobs([]);
+    resetFilters();
+    resetAddJobs();
+    setSelectedPage("jobs");
     toast.success(translate("notification_logout"));
   };
 

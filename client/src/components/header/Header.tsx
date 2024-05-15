@@ -1,15 +1,17 @@
 import { FC } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 import useTranslate from "../../hooks/useTranslate";
 import useAppContext from "../../hooks/useAppContext";
+import useAuth from "../../hooks/useAuth";
 import Dropdown from "../dropdown/Dropdown";
+import Email from "../email/Email";
 import logo from "../../assets/logo.svg";
 import "./header.style.scss";
 
 const Header: FC = () => {
   const { language, changeLanguage, translate } = useTranslate();
   const { isAuthenticated } = useAuth();
+  const { user } = useAuth();
   const { isLogin, updateIsLogin, setSelectedPage } = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,6 +70,7 @@ const Header: FC = () => {
           onSelect={handleSelect}
           selected={findSelected()}
         />
+        <Email>{user?.email}</Email>
       </section>
     </header>
   );
